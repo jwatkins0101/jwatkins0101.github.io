@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" fill="none">
+  <!-- About Hero - Four converging triangles -->
+  <rect width="1920" height="600" fill="#0A192F"/>
+
+  <!-- Large central converging diamond motif -->
+  <g transform="translate(960, 300)" opacity="0.15">
+    <!-- Top triangle - Navy lighter -->
+    <polygon points="0,-180 180,0 0,0" fill="#1e3a5f"/>
+    <!-- Right triangle - Gold -->
+    <polygon points="0,0 180,0 0,180" fill="#C9A962"/>
+    <!-- Bottom triangle - Navy lighter -->
+    <polygon points="0,0 0,180 -180,0" fill="#1e3a5f"/>
+    <!-- Left triangle - Blue -->
+    <polygon points="-180,0 0,0 0,-180" fill="#3B82F6"/>
+  </g>
+
+  <!-- Subtle gradient overlay from edges -->
+  <defs>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0A192F" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0A192F" stop-opacity="0.8"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#centerGlow)"/>
+
+  <!-- Smaller accent diamonds -->
+  <g opacity="0.1">
+    <polygon points="300,150 330,180 300,210 270,180" fill="#C9A962"/>
+    <polygon points="500,400 530,430 500,460 470,430" fill="#3B82F6"/>
+    <polygon points="1420,180 1450,210 1420,240 1390,210" fill="#3B82F6"/>
+    <polygon points="1620,420 1650,450 1620,480 1590,450" fill="#C9A962"/>
+  </g>
+
+  <!-- Connecting lines suggesting convergence -->
+  <g stroke="#64748B" stroke-width="1" opacity="0.2">
+    <line x1="0" y1="0" x2="960" y2="300"/>
+    <line x1="1920" y1="0" x2="960" y2="300"/>
+    <line x1="0" y1="600" x2="960" y2="300"/>
+    <line x1="1920" y1="600" x2="960" y2="300"/>
+  </g>
+</svg>

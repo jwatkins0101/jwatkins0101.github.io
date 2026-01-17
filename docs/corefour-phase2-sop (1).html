@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreFour Phase 2 SOP: AI Opportunity Deep Dive & Proof of Concept</title>
+    <style>
+        :root {
+            --primary: #0c3331;
+            --secondary: #144033;
+            --accent: #1a5c4a;
+            --light: #e8f5f3;
+            --dark: #000000;
+            --gray: #32373c;
+            --gray-light: #abb8c3;
+            --border: #d4e5e2;
+            --success: #1a5c4a;
+            --success-light: #d4edda;
+            --warning: #b8860b;
+            --warning-light: #fff3cd;
+            --danger: #8b0000;
+            --danger-light: #f8d7da;
+            --bg: #f7fafa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: var(--bg);
+        }
+
+        h1 {
+            color: var(--primary);
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: white;
+            background: var(--secondary);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 35px;
+        }
+
+        h4 { color: var(--primary); margin-top: 25px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) { background: #f8fafa; }
+        tr:hover { background: var(--light); }
+
+        .meta {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .meta p { margin: 5px 0; }
+
+        .toc {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin: 30px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .toc h3 { margin-top: 0; border: none; padding: 0; }
+        .toc ul { list-style: none; padding-left: 0; }
+        .toc li { padding: 6px 0; }
+        .toc a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .card h4 { margin-top: 0; color: var(--accent); }
+
+        .phase-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .phase-header h3 { color: white; margin: 0; border: none; padding: 0; }
+        .phase-header p { margin: 10px 0 0 0; opacity: 0.9; }
+
+        .day-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .prototype-box {
+            background: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: var(--success-light);
+            border-left: 4px solid var(--success);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        pre {
+            background: var(--dark);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { padding: 8px 0 8px 30px; position: relative; }
+        .checklist li:before { content: "\2610"; position: absolute; left: 0; color: var(--accent); font-size: 16px; }
+
+        .deliverables {
+            background: var(--success-light);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+
+        .deliverables h4 { color: var(--success); margin-top: 0; }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 40px 0;
+        }
+
+        .timeline {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .timeline-phase {
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .timeline-phase-label {
+            width: 120px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .timeline-bar {
+            flex: 1;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .bar-week1 { background: var(--accent); }
+        .bar-week2 { background: var(--secondary); }
+        .bar-week3 { background: var(--success); }
+
+        @media print {
+            body { background: white; max-width: 100%; }
+            .phase-header { break-before: page; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>CoreFour Advisors: Phase 2 SOP</h1>
+<h2 style="background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%); margin-top: 0;">AI Opportunity Deep Dive & Proof of Concept — Execution Playbook</h2>
+
+<div class="meta">
+    <p><strong>Version:</strong> 1.0</p>
+    <p><strong>Team Size:</strong> 4 people</p>
+    <p><strong>Duration:</strong> 10-15 business days</p>
+    <p><strong>Deliverables:</strong> Opportunity Profiles + Working Prototype + Implementation Roadmap</p>
+</div>
+
+<div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+        <li><a href="#overview">Phase 2 Overview</a></li>
+        <li><a href="#team">Team Roles & Responsibilities</a></li>
+        <li><a href="#pre">Pre-Phase 2 Checklist</a></li>
+        <li><a href="#week1">Week 1: Deep Dive (Days 1-5)</a></li>
+        <li><a href="#week2">Week 2: Build (Days 6-10)</a></li>
+        <li><a href="#week3">Week 3: Finalize & Deliver (Days 11-15)</a></li>
+        <li><a href="#templates">Deliverable Templates</a></li>
+        <li><a href="#prototype">Prototype Guidelines</a></li>
+        <li><a href="#quality">Quality Gates</a></li>
+    </ul>
+</div>
+
+<hr>
+
+<h2 id="overview">Phase 2 Overview</h2>
+
+<h3>What Phase 2 Accomplishes</h3>
+
+<div class="highlight-box">
+    <p><strong>Phase 1 answered:</strong> "What's possible and is it credible?"</p>
+    <p><strong>Phase 2 answers:</strong> "How exactly would we do it, and here's proof it works."</p>
+</div>
+
+<table>
+    <tr>
+        <th>Phase 1 Output</th>
+        <th>Phase 2 Deep Dive</th>
+    </tr>
+    <tr>
+        <td>Top 5 opportunities identified</td>
+        <td>Detailed implementation plan for each</td>
+    </tr>
+    <tr>
+        <td>Rough economics (ranges)</td>
+        <td>Precise economics with assumptions documented</td>
+    </tr>
+    <tr>
+        <td>Margin bridge (estimated)</td>
+        <td>Validated margin bridge with confidence levels</td>
+    </tr>
+    <tr>
+        <td>"This could work"</td>
+        <td><strong>"Here it is, working"</strong> (prototype)</td>
+    </tr>
+</table>
+
+<h3>When Phase 2 Happens</h3>
+
+<table>
+    <tr>
+        <th>Scenario</th>
+        <th>Timing</th>
+        <th>Client</th>
+    </tr>
+    <tr>
+        <td><strong>Pre-close (confirmatory)</strong></td>
+        <td>During exclusivity, before close</td>
+        <td>PE fund (diligence budget)</td>
+    </tr>
+    <tr>
+        <td><strong>Post-close (immediate)</strong></td>
+        <td>First 30 days after acquisition</td>
+        <td>PE fund + portfolio company</td>
+    </tr>
+    <tr>
+        <td><strong>Post-close (planned)</strong></td>
+        <td>Part of 100-day value creation plan</td>
+        <td>Portfolio company</td>
+    </tr>
+</table>
+
+<h3>Core Deliverables</h3>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Deliverable</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><strong>Detailed Opportunity Profiles</strong></td>
+        <td>Deep dive on top 5 opportunities with process maps, economics, requirements, risks</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><strong>Working Prototype</strong></td>
+        <td>Functional demonstration of #1 opportunity using real/realistic data</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><strong>Implementation Roadmap</strong></td>
+        <td>100-day plan with milestones, resources, dependencies</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><strong>Investment & Resource Plan</strong></td>
+        <td>Detailed budget, timeline, team requirements</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><strong>Presentation + Demo</strong></td>
+        <td>Live demo + roadmap walkthrough</td>
+    </tr>
+</table>
+
+<h3>Timeline Overview</h3>
+
+<div class="timeline">
+    <div class="timeline-phase">
+        <div class="timeline-phase-label">Week 1</div>
+        <div class="timeline-bar bar-week1">DEEP DIVE: Process mapping, data analysis, interviews, technical feasibility</div>
+    </div>
+    <div class="timeline-phase">
+        <div class="timeline-phase-label">Week 2</div>
+        <div class="timeline-bar bar-week2">BUILD: Prototype development, economics refinement, roadmap drafting</div>
+    </div>
+    <div class="timeline-phase">
+        <div class="timeline-phase-label">Week 3</div>
+        <div class="timeline-bar bar-week3">FINALIZE: Testing, documentation, presentation, delivery</div>
+    </div>
+</div>
+
+<hr>
+
+<h2 id="team">Team Roles & Responsibilities</h2>
+
+<table>
+    <tr>
+        <th>Role</th>
+        <th>Phase 2 Focus</th>
+        <th>Key Outputs</th>
+    </tr>
+    <tr>
+        <td><strong>Engagement Lead</strong></td>
+        <td>Client management, stakeholder alignment, final deliverable QA</td>
+        <td>Presentation, relationship management</td>
+    </tr>
+    <tr>
+        <td><strong>Technical Lead</strong></td>
+        <td>Prototype development, architecture design, technical feasibility</td>
+        <td>Working prototype, technical documentation</td>
+    </tr>
+    <tr>
+        <td><strong>PE/Finance Lead</strong></td>
+        <td>Economics validation, ROI modeling, business case refinement</td>
+        <td>Financial models, investment plan</td>
+    </tr>
+    <tr>
+        <td><strong>Analyst</strong></td>
+        <td>Process documentation, research support, deliverable drafting</td>
+        <td>Process maps, opportunity profiles, roadmap</td>
+    </tr>
+</table>
+
+<div class="highlight-box">
+    <strong>Phase 2 Shift:</strong> Technical Lead moves from assessment to building. Analyst shifts from research to documentation.
+</div>
+
+<hr>
+
+<h2 id="pre">Pre-Phase 2 Checklist</h2>
+
+<h3>Inputs Required from Phase 1</h3>
+<ul class="checklist">
+    <li>Phase 1 AI Reality Memo (final)</li>
+    <li>Top 5 opportunities ranked with preliminary economics</li>
+    <li>Systems inventory with automation readiness assessment</li>
+    <li>Industry AI maturity assessment</li>
+    <li>Go/No-Go recommendation and conditions</li>
+    <li>Management interview notes (for context)</li>
+</ul>
+
+<h3>New Access Required</h3>
+<ul class="checklist">
+    <li>Deeper system access (read-only to relevant systems: CRM, ERP, accounting)</li>
+    <li>Sample data exports (larger, more detailed than Phase 1)</li>
+    <li>Access to process owners (not just executives—the people who do the work)</li>
+    <li>Technical contact (IT lead or outsourced IT provider)</li>
+</ul>
+
+<h3>Client Alignment</h3>
+<ul class="checklist">
+    <li>Phase 2 scope confirmed (which opportunities to deep dive)</li>
+    <li>Prototype target confirmed (#1 opportunity agreed)</li>
+    <li>Access and scheduling confirmed</li>
+    <li>Timeline and deliverable expectations aligned</li>
+    <li>Budget for any third-party tools/licenses (if needed for prototype)</li>
+</ul>
+
+<hr>
+
+<div class="phase-header" id="week1">
+    <h3>WEEK 1: DEEP DIVE (Days 1-5)</h3>
+    <p>Process mapping, data analysis, requirements gathering, technical feasibility</p>
+</div>
+
+<h3><span class="day-badge">DAY 1</span> Kickoff & Alignment</h3>
+
+<div class="card">
+    <h4>All Team — Internal Kickoff (1 hour)</h4>
+    <p>Review Phase 1 findings:</p>
+    <ul>
+        <li>What are the top 5 opportunities?</li>
+        <li>Which is #1 (prototype target)?</li>
+        <li>What did we learn about systems, data, people?</li>
+        <li>What are the open questions?</li>
+    </ul>
+    <p><strong>Assign ownership:</strong></p>
+    <table>
+        <tr><th>Opportunity</th><th>Owner</th><th>Support</th></tr>
+        <tr><td>#1 (Prototype)</td><td>Technical Lead</td><td>Analyst</td></tr>
+        <tr><td>#2</td><td>PE/Finance Lead</td><td>Analyst</td></tr>
+        <tr><td>#3</td><td>Technical Lead</td><td>Analyst</td></tr>
+        <tr><td>#4</td><td>PE/Finance Lead</td><td>Analyst</td></tr>
+        <tr><td>#5</td><td>Analyst</td><td>PE/Finance Lead</td></tr>
+    </table>
+</div>
+
+<div class="card">
+    <h4>Engagement Lead + PE/Finance Lead — Client Kickoff Call (1 hour)</h4>
+    <ul>
+        <li>Validate the top 5 priorities (any changes since Phase 1?)</li>
+        <li>Confirm prototype target</li>
+        <li>Align on success criteria ("What does a good prototype look like?")</li>
+        <li>Schedule key meetings (process owner interviews, technical deep dives)</li>
+        <li>Confirm data/system access</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h4>Technical Lead + Analyst — Data & System Access Setup (2 hours)</h4>
+    <ul>
+        <li>Confirm read-only access to relevant systems</li>
+        <li>Request detailed data exports for prototype opportunity</li>
+        <li>Document technical environment (APIs available? Export formats?)</li>
+        <li>Identify technical point of contact</li>
+    </ul>
+</div>
+
+<h3><span class="day-badge">DAY 1-2</span> Process Owner Interviews</h3>
+
+<div class="card">
+    <h4>Process Owner Interview Protocol</h4>
+    <p><em>This is different from Phase 1 executive interviews. We're talking to the people who DO the work.</em></p>
+
+    <div class="prototype-box">
+        <strong>Opening (5 min):</strong> "We're here to understand exactly how [process] works today so we can design improvements. You're the expert—we need your help."
+    </div>
+
+    <h5>Current State Walkthrough (30 min)</h5>
+    <ul>
+        <li>Walk me through [process] step by step, from trigger to completion</li>
+        <li>What systems do you use at each step?</li>
+        <li>Where do you spend the most time?</li>
+        <li>What information do you need that's hard to get?</li>
+        <li>What are the most common errors or rework?</li>
+    </ul>
+
+    <h5>Exceptions & Edge Cases (15 min)</h5>
+    <ul>
+        <li>What happens when things don't go as planned?</li>
+        <li>What are the most common exceptions?</li>
+        <li>How do you handle [specific scenario]?</li>
+    </ul>
+
+    <h5>Pain Points & Wishlist (15 min)</h5>
+    <ul>
+        <li>If you could change one thing about this process, what would it be?</li>
+        <li>What would make your job easier?</li>
+    </ul>
+
+    <h5>Data & Inputs (15 min)</h5>
+    <ul>
+        <li>What data do you need to do this task?</li>
+        <li>Where does that data come from?</li>
+        <li>How reliable is it?</li>
+    </ul>
+</div>
+
+<h3><span class="day-badge">DAY 2-3</span> Process Mapping</h3>
+
+<div class="card">
+    <h4>Process Map Template</h4>
+    <pre>
+PROCESS MAP: [Opportunity Name]
+
+TRIGGER: [What initiates the process]
+     |
+     v
++-------------+     +-------------+     +-------------+
+|   STEP 1    |---->|   STEP 2    |---->|   STEP 3    |
+|             |     |             |     |             |
+| System:     |     | System:     |     | System:     |
+| Time:       |     | Time:       |     | Time:       |
+| Pain:       |     | Pain:       |     | Pain:       |
++-------------+     +-------------+     +-------------+
+
+EXCEPTIONS:
+* [Exception 1] -> [How handled]
+* [Exception 2] -> [How handled]
+
+TOTAL TIME: [X hours/minutes]
+MANUAL TOUCHPOINTS: [Y]
+ERROR RATE: [Z%]
+    </pre>
+</div>
+
+<h3><span class="day-badge">DAY 3-4</span> Technical Feasibility & Architecture</h3>
+
+<div class="card">
+    <h4>Data Quality Assessment Checklist</h4>
+    <ul class="checklist">
+        <li>Data sources identified</li>
+        <li>Sample data exported</li>
+        <li>Completeness: ___% of records have required fields</li>
+        <li>Consistency: ___% of records have consistent formats</li>
+        <li>Accuracy: Spot-checked against source</li>
+        <li>Timeliness: Data is ___ [hours/days] old</li>
+        <li>Data transformations needed documented</li>
+        <li>Integration method: [API / Export / Direct DB / Other]</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h4>Prototype Architecture Template</h4>
+    <pre>
+PROTOTYPE ARCHITECTURE: [Opportunity Name]
+
+DATA SOURCES:
++-------------+     +-------------+     +-------------+
+|  Source 1   |     |  Source 2   |     |  Source 3   |
++------+------+     +------+------+     +------+------+
+       +-------------------+-------------------+
+                           |
+                           v
+                  +-----------------+
+                  |   DATA LAYER    |
+                  +--------+--------+
+                           |
+                           v
+                  +-----------------+
+                  |   AI/LOGIC      |
+                  +--------+--------+
+                           |
+                           v
+                  +-----------------+
+                  |   OUTPUT        |
+                  +-----------------+
+
+TOOLS/PLATFORMS: [List]
+BUILD TIME ESTIMATE: [X days]
+    </pre>
+</div>
+
+<div class="deliverables">
+    <h4>Week 1 Deliverables</h4>
+    <ul class="checklist">
+        <li>Process maps complete (current + future state) for #1 opportunity</li>
+        <li>Technical feasibility confirmed</li>
+        <li>Prototype architecture designed</li>
+        <li>Data quality assessment complete</li>
+        <li>Process documentation started for opportunities #2-5</li>
+        <li>Economics data gathered</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="phase-header" id="week2">
+    <h3>WEEK 2: BUILD (Days 6-10)</h3>
+    <p>Prototype development, economics refinement, roadmap drafting, opportunity profiles</p>
+</div>
+
+<h3><span class="day-badge">DAYS 5-7</span> Prototype Development</h3>
+
+<div class="prototype-box">
+    <h4 style="margin-top: 0; color: var(--secondary);">Prototype Build Focus</h4>
+    <p><strong>Day 5:</strong> Core functionality working end-to-end</p>
+    <p><strong>Day 6-7:</strong> Polish, edge cases, demo-readiness</p>
+</div>
+
+<div class="card">
+    <h4>Prototype Completion Checklist</h4>
+
+    <h5>Functionality</h5>
+    <ul class="checklist">
+        <li>Core use case works end-to-end</li>
+        <li>Handles most common variations</li>
+        <li>Edge cases identified and handled (or documented as limitations)</li>
+        <li>Error handling in place</li>
+        <li>Output is usable/readable</li>
+    </ul>
+
+    <h5>Demo Readiness</h5>
+    <ul class="checklist">
+        <li>Clear "happy path" for demonstration</li>
+        <li>Sample data prepared for demo</li>
+        <li>Known limitations documented</li>
+        <li>Can run reliably (no crashes during demo)</li>
+    </ul>
+
+    <h5>Documentation</h5>
+    <ul class="checklist">
+        <li>What it does (plain language)</li>
+        <li>How it works (technical summary)</li>
+        <li>What it needs to run (inputs, systems, data)</li>
+        <li>What would be needed to productionize</li>
+        <li>Known limitations</li>
+    </ul>
+</div>
+
+<h3><span class="day-badge">DAYS 6-7</span> Economics & Opportunity Profiles</h3>
+
+<div class="card">
+    <h4>Economics Model Structure</h4>
+    <pre>
+OPPORTUNITY: [Name]
+
+CURRENT STATE COSTS:
++-- Labor: [X hours/week] x [Y $/hour] = $___/week
++-- Time value: [X hours saved] x [Y $/hour] = $___/week
++-- Error cost: [X errors/month] x [Y $/error] = $___/month
++-- Delay cost: [Description] = $___/month
++-- TOTAL CURRENT COST: $___/year
+
+FUTURE STATE COSTS:
++-- Tool/license cost: $___/year
++-- Maintenance: $___/year
++-- Residual labor: [X hours/week] x [Y $/hour] = $___/week
++-- TOTAL FUTURE COST: $___/year
+
+NET SAVINGS: $___/year
+
+IMPLEMENTATION COST:
++-- One-time build: $___
++-- Data cleanup: $___
++-- Training: $___
++-- TOTAL IMPLEMENTATION: $___
+
+PAYBACK: ___ months
+ROI (Year 1): ___%
+ROI (3-Year): ___%
+    </pre>
+</div>
+
+<h3><span class="day-badge">DAY 8</span> Implementation Roadmap</h3>
+
+<div class="card">
+    <h4>100-Day Roadmap Structure</h4>
+    <pre>
+100-DAY AI IMPLEMENTATION ROADMAP
+
+===================================================================
+PHASE 1: FOUNDATION (Days 1-30)
+-------------------------------------------------------------------
+Week 1-2: Quick Win #1 - [Name]
++-- Milestone: [What's delivered]
++-- Owner: [Who]
++-- Success metric: [How we know it worked]
+
+Week 2-3: Data Foundation
++-- Milestone: [What's delivered]
++-- Owner: [Who]
+
+Week 3-4: Quick Win #2 - [Name]
++-- Milestone: [What's delivered]
++-- Owner: [Who]
+
+===================================================================
+PHASE 2: BUILD (Days 31-60)
+-------------------------------------------------------------------
+Week 5-6: [Major Initiative #1]
+Week 7-8: [Major Initiative #2]
+
+===================================================================
+PHASE 3: SCALE (Days 61-100)
+-------------------------------------------------------------------
+Week 9-10: [Scale Initiative #1]
+Week 11-12: [Scale Initiative #2]
+Week 13-14: Measurement & Optimization
+    </pre>
+</div>
+
+<div class="deliverables">
+    <h4>Week 2 Deliverables</h4>
+    <ul class="checklist">
+        <li>Prototype complete and demo-ready</li>
+        <li>Economics complete for all 5 opportunities</li>
+        <li>Opportunity profiles drafted for all 5</li>
+        <li>100-day roadmap drafted</li>
+        <li>Investment & resource plan drafted</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="phase-header" id="week3">
+    <h3>WEEK 3: FINALIZE & DELIVER (Days 11-15)</h3>
+    <p>Testing, documentation, presentation, delivery</p>
+</div>
+
+<h3><span class="day-badge">DAYS 9-10</span> Final Assembly & Review</h3>
+
+<div class="card">
+    <h4>Internal Review Checklist</h4>
+    <ul>
+        <li>Is everything accurate?</li>
+        <li>Is anything missing?</li>
+        <li>Are recommendations clear?</li>
+        <li>Does it tell a coherent story?</li>
+    </ul>
+
+    <h4>Red Team Questions</h4>
+    <ul>
+        <li>What would the client push back on?</li>
+        <li>Are the economics defensible?</li>
+        <li>Is the roadmap realistic?</li>
+        <li>What could go wrong?</li>
+    </ul>
+</div>
+
+<h3><span class="day-badge">DAY 11</span> Dry Run</h3>
+
+<div class="card">
+    <h4>Dry Run Checklist</h4>
+    <ul class="checklist">
+        <li>Full presentation rehearsal (timed: 45-60 min)</li>
+        <li>Practice live prototype demo</li>
+        <li>Practice handling questions</li>
+        <li>Assign who answers what</li>
+        <li>Ensure demo environment is stable</li>
+        <li>Prepare backup (screenshots/video)</li>
+    </ul>
+</div>
+
+<h3><span class="day-badge">DAY 12</span> Delivery</h3>
+
+<div class="card">
+    <h4>Presentation Agenda (90-120 min)</h4>
+    <table>
+        <tr>
+            <th>Segment</th>
+            <th>Duration</th>
+            <th>Presenter</th>
+        </tr>
+        <tr><td>Opening & Context</td><td>5 min</td><td>Engagement Lead</td></tr>
+        <tr><td>Executive Summary</td><td>10 min</td><td>Engagement Lead</td></tr>
+        <tr><td>Opportunity Deep Dives</td><td>20 min</td><td>PE/Finance Lead + Technical Lead</td></tr>
+        <tr style="background: var(--light);"><td><strong>Prototype Demo</strong></td><td><strong>20 min</strong></td><td><strong>Technical Lead</strong></td></tr>
+        <tr><td>Implementation Roadmap</td><td>15 min</td><td>Engagement Lead</td></tr>
+        <tr><td>Investment & ROI</td><td>10 min</td><td>PE/Finance Lead</td></tr>
+        <tr><td>Discussion & Q&A</td><td>20-30 min</td><td>All</td></tr>
+        <tr><td>Next Steps</td><td>5 min</td><td>Engagement Lead</td></tr>
+    </table>
+</div>
+
+<div class="deliverables">
+    <h4>Final Deliverables</h4>
+    <ul class="checklist">
+        <li>Detailed Opportunity Profiles (all 5)</li>
+        <li>Working Prototype + Documentation</li>
+        <li>100-Day Implementation Roadmap</li>
+        <li>Investment & Resource Plan</li>
+        <li>Presentation Deck</li>
+        <li>Live Demo Delivered</li>
+    </ul>
+</div>
+
+<hr>
+
+<h2 id="prototype">Prototype Guidelines</h2>
+
+<h3>What Makes a Good Prototype</h3>
+
+<table>
+    <tr>
+        <th>Criterion</th>
+        <th>Standard</th>
+    </tr>
+    <tr>
+        <td><strong>Functional</strong></td>
+        <td>Actually works—not a mockup or wireframe</td>
+    </tr>
+    <tr>
+        <td><strong>Real data</strong></td>
+        <td>Uses actual company data (sanitized if needed) or realistic synthetic data</td>
+    </tr>
+    <tr>
+        <td><strong>Core use case</strong></td>
+        <td>Solves the primary problem, not edge cases</td>
+    </tr>
+    <tr>
+        <td><strong>Demo-able</strong></td>
+        <td>Can be shown and explained in 15-20 minutes</td>
+    </tr>
+    <tr>
+        <td><strong>Documented</strong></td>
+        <td>Clear explanation of what it does and what's needed to productionize</td>
+    </tr>
+</table>
+
+<h3>What a Prototype Is NOT</h3>
+
+<table>
+    <tr>
+        <th>Not This</th>
+        <th>But This</th>
+    </tr>
+    <tr><td>Production-ready system</td><td>Proof of concept</td></tr>
+    <tr><td>Handles all edge cases</td><td>Handles the happy path</td></tr>
+    <tr><td>Polished UI</td><td>Functional output</td></tr>
+    <tr><td>Scalable architecture</td><td>Works for demonstration</td></tr>
+    <tr><td>Complete documentation</td><td>Sufficient to explain</td></tr>
+</table>
+
+<h3>Common Prototype Types</h3>
+
+<table>
+    <tr>
+        <th>Opportunity</th>
+        <th>Typical Prototype</th>
+    </tr>
+    <tr><td>Quote automation</td><td>Working quote generator pulling from sample CRM data</td></tr>
+    <tr><td>Invoice matching</td><td>Matcher that processes sample invoices against sample POs</td></tr>
+    <tr><td>Customer reporting</td><td>Report generator from sample data sources</td></tr>
+    <tr><td>Meeting prep</td><td>Briefing generator from sample CRM/calendar data</td></tr>
+    <tr><td>Lead scoring</td><td>Scorer that enriches and scores sample leads</td></tr>
+    <tr><td>Close automation</td><td>Journal entry generator from sample transactions</td></tr>
+</table>
+
+<h3>Technical Approach Options</h3>
+
+<table>
+    <tr>
+        <th>Approach</th>
+        <th>When to Use</th>
+        <th>Tools</th>
+    </tr>
+    <tr><td><strong>No-code/low-code</strong></td><td>Simple data transformations, basic logic</td><td>Zapier, Make, Retool, Airtable</td></tr>
+    <tr><td><strong>AI platform</strong></td><td>Needs LLM capabilities</td><td>OpenAI API, Claude API, LangChain</td></tr>
+    <tr><td><strong>Scripted</strong></td><td>Custom logic, data processing</td><td>Python, JavaScript</td></tr>
+    <tr><td><strong>Spreadsheet</strong></td><td>Simple calculations, limited data</td><td>Excel, Google Sheets</td></tr>
+</table>
+
+<hr>
+
+<h2 id="quality">Quality Gates</h2>
+
+<h3>Before Prototype Demo</h3>
+<ul class="checklist">
+    <li>Prototype works end-to-end on happy path</li>
+    <li>Demo script prepared and practiced</li>
+    <li>Backup ready (screenshots/video) if live demo fails</li>
+    <li>Limitations documented and ready to explain</li>
+    <li>Productionization requirements documented</li>
+</ul>
+
+<h3>Before Deliverable Handoff</h3>
+<ul class="checklist">
+    <li>All 5 opportunity profiles complete</li>
+    <li>Economics validated and assumptions documented</li>
+    <li>Roadmap reviewed for realism</li>
+    <li>Investment plan complete with contingency</li>
+    <li>All documents consistent (no contradictions)</li>
+    <li>Executive summary stands alone</li>
+    <li>Presentation deck matches written deliverables</li>
+</ul>
+
+<hr>
+
+<h2>Risk Management</h2>
+
+<h3>Common Phase 2 Risks</h3>
+
+<table>
+    <tr>
+        <th>Risk</th>
+        <th>Mitigation</th>
+    </tr>
+    <tr><td><strong>Data access delayed</strong></td><td>Request early; have fallback plan (synthetic data)</td></tr>
+    <tr><td><strong>Prototype scope creep</strong></td><td>Define "done" upfront; resist feature additions</td></tr>
+    <tr><td><strong>Economics don't validate</strong></td><td>Adjust estimates early; document assumptions clearly</td></tr>
+    <tr><td><strong>Prototype fails during demo</strong></td><td>Always have backup; practice multiple times</td></tr>
+    <tr><td><strong>Client expectations too high</strong></td><td>Set expectations in kickoff; emphasize "proof of concept"</td></tr>
+    <tr><td><strong>Process more complex than expected</strong></td><td>Focus on core use case; document complexity for implementation</td></tr>
+</table>
+
+<hr>
+
+<h2>Time Budget Summary</h2>
+
+<table>
+    <tr>
+        <th>Days</th>
+        <th>Focus</th>
+        <th>Total Team Hours</th>
+    </tr>
+    <tr><td>1-2</td><td>Kickoff, process mapping, interviews</td><td>32</td></tr>
+    <tr><td>3-4</td><td>Technical feasibility, prototype design</td><td>32</td></tr>
+    <tr><td>5-7</td><td>Prototype build, economics, profiles</td><td>48</td></tr>
+    <tr><td>8-10</td><td>Roadmap, assembly, internal review</td><td>48</td></tr>
+    <tr><td>11-12</td><td>Dry run, delivery</td><td>24</td></tr>
+    <tr><td>13-15</td><td>Buffer, follow-up</td><td>16</td></tr>
+    <tr style="background: var(--light); font-weight: bold;"><td>TOTAL</td><td></td><td>~200 hours</td></tr>
+</table>
+
+<p><strong>Per person over 15 days:</strong> ~50 hours (~7 hours/day average, with variability)</p>
+
+<hr>
+
+<div class="success-box">
+    <h4 style="margin-top: 0; color: var(--success);">The Phase 2 Difference</h4>
+    <p>Phase 1 says "this could work." Phase 2 says <strong>"here it is, working."</strong></p>
+    <p>The prototype is your unfair advantage. No one else delivers proof.</p>
+</div>
+
+<hr>
+
+<p style="text-align: center; color: var(--gray); margin-top: 40px;">
+    <strong>CoreFour Advisors</strong><br>
+    Phase 2 SOP v1.0<br>
+    <em>AI Opportunity Deep Dive & Proof of Concept</em>
+</p>
+
+</body>
+</html>

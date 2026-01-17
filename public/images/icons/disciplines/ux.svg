@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- UX (User Experience) - Triangle with wireframe -->
+  <!-- Triangle shape with light fill -->
+  <polygon points="40,8 72,68 8,68" fill="#F1F5F9" stroke="#0A192F" stroke-width="2"/>
+  <!-- Wireframe interface elements inside -->
+  <rect x="28" y="28" width="24" height="4" fill="#0A192F"/>
+  <rect x="28" y="38" width="10" height="10" stroke="#0A192F" stroke-width="2" fill="none"/>
+  <rect x="42" y="38" width="10" height="10" stroke="#0A192F" stroke-width="2" fill="none"/>
+  <rect x="28" y="52" width="24" height="3" fill="#C9A962"/>
+</svg>

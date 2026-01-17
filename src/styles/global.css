@@ -1,0 +1,349 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap');
+
+/* CSS Variables - CoreFour Brand Palette */
+:root {
+  /* Brand Colors (from C4 logo) */
+  --color-navy: #0A192F;          /* Oxford Navy - primary brand color */
+  --color-gold: #C9A962;          /* Warm Gold - accent, premium feel */
+  --color-gold-dark: #B8954D;     /* Gold darker for hover states */
+  --color-gold-light: #D4B978;    /* Gold lighter */
+  --color-teal: #5DADE2;          /* Teal/Light Blue - from C4 logo */
+  --color-teal-dark: #3498DB;     /* Teal darker for hover states */
+
+  /* Digital Accent */
+  --color-blue: #3B82F6;          /* Signal Blue - CTAs, links */
+  --color-blue-dark: #2563EB;     /* Signal Blue darker */
+
+  /* Legacy mappings for compatibility */
+  --color-primary: var(--color-blue);
+  --color-primary-dark: var(--color-blue-dark);
+  --color-secondary: var(--color-navy);
+  --color-accent: var(--color-gold);
+  --color-accent-dark: var(--color-gold-dark);
+
+  /* Text */
+  --color-text: #0F172A;          /* Dark text for body */
+  --color-text-light: #64748B;    /* Steel Slate - secondary text */
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-background-alt: #F1F5F9; /* Platinum */
+  --color-border: #e2e8f0;
+  --color-dark: #0A192F;          /* Oxford Navy */
+
+  /* Reporting Status (RAG) */
+  --status-go: #10B981;           /* Emerald */
+  --status-caution: #F59E0B;      /* Amber */
+  --status-stop: #EF4444;         /* Crimson */
+
+  /* Layout */
+  --max-width: 1200px;
+
+  /* Fonts */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Uppercase Title Style */
+.title-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Code/Data text */
+code, .mono {
+  font-family: var(--font-mono);
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 1.5rem;
+}
+
+.section-alt {
+  background: var(--color-background-alt);
+}
+
+/* Dark Section (Oxford Navy) */
+.section-dark {
+  background: var(--color-dark);
+  color: white;
+}
+
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: white;
+}
+
+.section-dark p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-light {
+  color: var(--color-text-light);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-white {
+  background: white;
+  color: var(--color-secondary);
+}
+
+.btn-white:hover {
+  background: var(--color-background-alt);
+  color: var(--color-secondary);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headers */
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: var(--color-text-light);
+  font-size: 1.125rem;
+}
+
+/* Status Indicators */
+.status-go {
+  color: var(--status-go);
+}
+
+.status-caution {
+  color: var(--status-caution);
+}
+
+.status-stop {
+  color: var(--status-stop);
+}
+
+/* Highlight box styles (for memos/callouts) */
+.callout-success {
+  background: #D1FAE5;
+  border-left: 5px solid var(--status-go);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.callout-warning {
+  background: #FEF3C7;
+  border-left: 5px solid var(--status-caution);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.callout-danger {
+  background: #FEE2E2;
+  border-left: 5px solid var(--status-stop);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Gold Accent Utilities */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-navy {
+  color: var(--color-navy);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+/* Gold variant buttons */
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-dark);
+  color: var(--color-navy);
+}
+
+.btn-gold-outline {
+  background: transparent;
+  color: var(--color-gold);
+  border: 2px solid var(--color-gold);
+}
+
+.btn-gold-outline:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* Eyebrow text with gold accent */
+.eyebrow-gold {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Deep Operator Bench - Four connected nodes/experts -->
+  <!-- Connection lines -->
+  <line x1="25" y1="25" x2="55" y2="25" stroke="#C9A962" stroke-width="2"/>
+  <line x1="25" y1="55" x2="55" y2="55" stroke="#C9A962" stroke-width="2"/>
+  <line x1="25" y1="25" x2="25" y2="55" stroke="#C9A962" stroke-width="2"/>
+  <line x1="55" y1="25" x2="55" y2="55" stroke="#C9A962" stroke-width="2"/>
+  <!-- Diagonal connections -->
+  <line x1="25" y1="25" x2="55" y2="55" stroke="#C9A962" stroke-width="1.5"/>
+  <line x1="55" y1="25" x2="25" y2="55" stroke="#C9A962" stroke-width="1.5"/>
+  <!-- Four nodes representing experts -->
+  <circle cx="25" cy="25" r="10" fill="#0A192F"/>
+  <circle cx="55" cy="25" r="10" fill="#0A192F"/>
+  <circle cx="25" cy="55" r="10" fill="#0A192F"/>
+  <circle cx="55" cy="55" r="10" fill="#0A192F"/>
+  <!-- Inner circles -->
+  <circle cx="25" cy="25" r="5" fill="#3B82F6"/>
+  <circle cx="55" cy="25" r="5" fill="#3B82F6"/>
+  <circle cx="25" cy="55" r="5" fill="#3B82F6"/>
+  <circle cx="55" cy="55" r="5" fill="#3B82F6"/>
+</svg>

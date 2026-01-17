@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Blueprint/wireframe emerging -->
+  <rect x="10" y="15" width="40" height="50" rx="2" stroke="#0A192F" stroke-width="2.5" fill="none"/>
+  <!-- Wireframe lines -->
+  <line x1="16" y1="25" x2="44" y2="25" stroke="#C9A962" stroke-width="2"/>
+  <rect x="16" y="32" width="12" height="8" stroke="#C9A962" stroke-width="1.5" fill="none"/>
+  <rect x="32" y="32" width="12" height="8" stroke="#C9A962" stroke-width="1.5" fill="none"/>
+  <line x1="16" y1="48" x2="44" y2="48" stroke="#C9A962" stroke-width="1.5"/>
+  <line x1="16" y1="54" x2="34" y2="54" stroke="#C9A962" stroke-width="1.5"/>
+  <!-- Code bracket emerging -->
+  <text x="52" y="45" font-family="monospace" font-size="28" font-weight="bold" fill="#0A192F">{</text>
+</svg>

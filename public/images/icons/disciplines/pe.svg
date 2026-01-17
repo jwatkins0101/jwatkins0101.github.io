@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- PE (Private Equity) - Triangle with growth chart -->
+  <!-- Triangle shape -->
+  <polygon points="40,8 72,68 8,68" fill="#0A192F"/>
+  <!-- Growth chart inside -->
+  <polyline points="20,55 32,45 42,50 55,32" stroke="#C9A962" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Arrow head -->
+  <polygon points="55,32 55,40 48,35" fill="#C9A962"/>
+</svg>

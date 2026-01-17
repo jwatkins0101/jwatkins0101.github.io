@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreFour Advisors: Phase 1 SOP v2</title>
+    <style>
+        :root {
+            --primary: #0c3331;
+            --secondary: #144033;
+            --accent: #1a5c4a;
+            --light: #e8f5f3;
+            --dark: #000000;
+            --gray: #32373c;
+            --gray-light: #abb8c3;
+            --border: #d4e5e2;
+            --success: #1a5c4a;
+            --success-light: #d4edda;
+            --warning: #b8860b;
+            --warning-light: #fff3cd;
+            --danger: #8b0000;
+            --danger-light: #f8d7da;
+            --bg: #f7fafa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: var(--bg);
+        }
+
+        h1 {
+            color: var(--primary);
+            border-bottom: 4px solid var(--secondary);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 30px;
+        }
+
+        h4 {
+            color: var(--secondary);
+            margin-top: 25px;
+        }
+
+        .meta {
+            background: var(--light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .meta p {
+            margin: 5px 0;
+        }
+
+        .meta strong {
+            color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafa;
+        }
+
+        tr:hover {
+            background: var(--light);
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success-box {
+            background: var(--success-light);
+            border-left: 4px solid var(--success);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "\2610";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        pre {
+            background: var(--gray);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .day-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .day-header h3 {
+            color: white;
+            margin: 0;
+        }
+
+        .time-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .time-block h4 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+
+        .deliverables {
+            background: var(--success-light);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+
+        .deliverables h4 {
+            color: var(--success);
+            margin-top: 0;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .toc {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 30px;
+            margin: 30px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            padding: 5px 0;
+        }
+
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+            color: var(--primary);
+        }
+
+        .interview-section {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .interview-section h5 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 40px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+                max-width: 100%;
+            }
+
+            .day-header {
+                break-before: page;
+            }
+
+            pre {
+                white-space: pre-wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>CoreFour Advisors: Phase 1 Standard Operating Procedure</h1>
+<h2 style="border: none; margin-top: 0; color: var(--gray);">AI Reality Check — Execution Playbook</h2>
+
+<div class="meta">
+    <p><strong>Version:</strong> 2.0</p>
+    <p><strong>Update:</strong> Reframed for opportunity sizing, not just claim validation</p>
+    <p><strong>Team Size:</strong> 4 people</p>
+    <p><strong>Duration:</strong> 5-7 business days</p>
+    <p><strong>Deliverable:</strong> AI Reality Memo (5-7 pages) + Deal Team Presentation</p>
+</div>
+
+<div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+        <li><a href="#core-questions">Core Questions We Answer</a></li>
+        <li><a href="#team-roles">Team Roles & Responsibilities</a></li>
+        <li><a href="#pre-engagement">Pre-Engagement Checklist</a></li>
+        <li><a href="#day1">Day 1: Immersion & Initial Interviews</a></li>
+        <li><a href="#day2">Day 2: Deep Interviews & Functional Analysis</a></li>
+        <li><a href="#day3">Day 3: Opportunity Identification & Sizing</a></li>
+        <li><a href="#day4">Day 4: Synthesis & Reality Check</a></li>
+        <li><a href="#day5">Day 5: Finalization & Delivery</a></li>
+        <li><a href="#memo-template">Memo Template</a></li>
+        <li><a href="#interview-questions">Interview Questions</a></li>
+        <li><a href="#rules-of-thumb">Rules of Thumb</a></li>
+    </ul>
+</div>
+
+<hr>
+
+<h2 id="core-questions">The Core Questions We Answer</h2>
+
+<p>Phase 1 answers four questions for the PE fund:</p>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Question</th>
+        <th>Why It Matters</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><strong>Can we credibly model operating margin improvement from AI?</strong></td>
+        <td>Feeds directly into the deal model and value creation thesis</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><strong>What are the AI quick wins?</strong></td>
+        <td>Identifies low-hanging fruit for early post-close wins</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><strong>What investment is needed to achieve them?</strong></td>
+        <td>Validates that returns justify the effort</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><strong>How does the target compare to industry AI maturity?</strong></td>
+        <td>Assesses competitive risk and opportunity</td>
+    </tr>
+</table>
+
+<div class="highlight-box">
+    <strong>Note:</strong> Many targets won't be making any AI claims. That's fine—most LMM companies aren't. Our job is to assess what's <em>possible</em>, not validate what's <em>claimed</em>.
+</div>
+
+<h3>Reframing the Engagement</h3>
+
+<table>
+    <tr>
+        <th>Old Framing (Claim Validation)</th>
+        <th>New Framing (Opportunity Sizing)</th>
+    </tr>
+    <tr>
+        <td>"Management says X about AI—is it true?"</td>
+        <td>"Given this company's processes, data, and systems, what AI-driven margin improvement is credible, and what would it take to get there?"</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2 id="team-roles">Team Roles & Responsibilities</h2>
+
+<table>
+    <tr>
+        <th>Role</th>
+        <th>Primary Responsibilities</th>
+    </tr>
+    <tr>
+        <td><strong>Engagement Lead</strong></td>
+        <td>Client interface, management interviews, final deliverable QA, presentation</td>
+    </tr>
+    <tr>
+        <td><strong>Technical Lead</strong></td>
+        <td>Systems audit, data assessment, implementation feasibility, investment sizing</td>
+    </tr>
+    <tr>
+        <td><strong>PE/Finance Lead</strong></td>
+        <td>Opportunity economics, margin bridge modeling, industry AI maturity analysis</td>
+    </tr>
+    <tr>
+        <td><strong>Analyst</strong></td>
+        <td>Research, artifact organization, memo drafting, interview notes, logistics</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2 id="pre-engagement">Pre-Engagement Checklist</h2>
+
+<h3>Materials to Request from PE Fund</h3>
+<ul class="checklist">
+    <li>CIM (Confidential Information Memorandum)</li>
+    <li>Historical financials (3 years P&L, balance sheet)</li>
+    <li>Quality of Earnings report (if available)</li>
+    <li>Deal model (so we understand their margin assumptions)</li>
+    <li>Investment thesis memo (what's the value creation plan?)</li>
+</ul>
+
+<h3>Materials to Request from Target Company</h3>
+<ul class="checklist">
+    <li>Organization chart with headcount by function</li>
+    <li>Systems/software inventory list</li>
+    <li>Sample reports they run regularly (financial, operational)</li>
+    <li>Process documentation (if any exists—often doesn't)</li>
+</ul>
+
+<h3>Key Context to Get from Deal Team Before Starting</h3>
+<ul class="checklist">
+    <li>What margin improvement are they modeling? (e.g., "200 bps EBITDA expansion")</li>
+    <li>What's the hold period assumption?</li>
+    <li>What's their appetite for technology investment?</li>
+    <li>Any specific areas they want us to focus on?</li>
+</ul>
+
+<hr>
+
+<div class="day-header" id="day1">
+    <h3>DAY 1: Immersion & Initial Interviews</h3>
+</div>
+
+<h4>Morning (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — CIM Deep Read (2 hours)</h4>
+    <p>Read with these lenses:</p>
+    <ul>
+        <li>Where is labor concentrated? (headcount by function)</li>
+        <li>What processes seem complex or manual?</li>
+        <li>Where is gross margin leakage likely?</li>
+        <li>What's the cost structure? (fixed vs. variable, SG&A breakdown)</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Team Huddle (30 min)</h4>
+    <p>Create initial hypothesis list:</p>
+    <ul>
+        <li>"Finance team is 6 people for $40M revenue—likely manual processes"</li>
+        <li>"Sales is relationship-driven, no mention of CRM or pipeline tools"</li>
+        <li>"Ops mentions 'custom' work—probably low standardization"</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Engagement Lead + PE/Finance Lead — Fund Alignment Call (30 min)</h4>
+    <p>Critical questions for deal team:</p>
+    <ul>
+        <li>What margin improvement is in your model?</li>
+        <li>Where do you think the operating leverage comes from?</li>
+        <li>What would make you more/less confident in the value creation thesis?</li>
+        <li>Any concerns about the target's ability to change?</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Technical Lead + Analyst — Systems & Org Analysis (1 hour)</h4>
+    <p>From CIM and any materials provided:</p>
+    <ul>
+        <li>Map headcount by function</li>
+        <li>List known systems</li>
+        <li>Identify gaps (e.g., "no CRM mentioned")</li>
+    </ul>
+</div>
+
+<h4>Afternoon (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Management Interview #1: CEO/President (90 min)</h4>
+
+    <div class="highlight-box">
+        <strong>REVISED INTERVIEW PROTOCOL — OPPORTUNITY-FOCUSED</strong>
+    </div>
+
+    <div class="interview-section">
+        <h5>Opening (10 min)</h5>
+        <ul>
+            <li>Introductions, explain our role</li>
+            <li>"We're here to understand your operations and identify where AI/automation could create value post-close. We're not auditing or judging—we're looking for opportunities."</li>
+        </ul>
+    </div>
+
+    <div class="interview-section">
+        <h5>Business Understanding (20 min)</h5>
+        <ul>
+            <li>Walk us through your core business process from customer inquiry to cash collection</li>
+            <li>What are the most time-consuming activities in your business?</li>
+            <li>Where do you feel like you're leaving money on the table?</li>
+            <li>What would you do with 20% more capacity without adding headcount?</li>
+        </ul>
+    </div>
+
+    <div class="interview-section">
+        <h5>Process Deep Dive (25 min)</h5>
+        <ul>
+            <li>How do you generate and close new business? (sales process)</li>
+            <li>How do you fulfill orders/deliver services?</li>
+            <li>How does your finance team operate? How long is month-end close?</li>
+            <li>What's your biggest operational headache?</li>
+        </ul>
+    </div>
+
+    <div class="interview-section">
+        <h5>Data & Systems (15 min)</h5>
+        <ul>
+            <li>What systems does your team live in day-to-day?</li>
+            <li>Where does your most important data live?</li>
+            <li>What can't you easily see or report on?</li>
+        </ul>
+    </div>
+
+    <div class="interview-section">
+        <h5>Change Readiness (15 min)</h5>
+        <ul>
+            <li>If a new owner wanted to implement new tools or processes, how would your team respond?</li>
+            <li>Have you tried implementing new technology before? What happened?</li>
+            <li>Who are your most tech-savvy people?</li>
+        </ul>
+    </div>
+
+    <div class="interview-section">
+        <h5>Closing (5 min)</h5>
+        <ul>
+            <li>What should we make sure to understand about your business?</li>
+            <li>Who else should we talk to?</li>
+        </ul>
+    </div>
+</div>
+
+<div class="time-block">
+    <h4>Post-Interview Debrief (30 min)</h4>
+    <p>Each person notes:</p>
+    <ul>
+        <li>Processes that sounded manual/inefficient</li>
+        <li>Functions with high headcount relative to output</li>
+        <li>Resistance signals or openness to change</li>
+        <li>Quick win candidates</li>
+    </ul>
+</div>
+
+<div class="deliverables">
+    <h4>Day 1 Deliverables</h4>
+    <ul class="checklist">
+        <li>CIM analyzed, hypotheses documented</li>
+        <li>Deal team alignment complete</li>
+        <li>CEO interview complete</li>
+        <li>Initial opportunity hypotheses listed</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="day-header" id="day2">
+    <h3>DAY 2: Deep Interviews & Functional Analysis</h3>
+</div>
+
+<h4>Morning (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Management Interview #2: CFO/Controller (60 min)</h4>
+    <p><strong>Focus: Finance function efficiency and data quality</strong></p>
+    <ul>
+        <li>Walk me through month-end close step by step. How long does each part take?</li>
+        <li>How many people touch the close process?</li>
+        <li>How do you build reports for the board/ownership?</li>
+        <li>What reconciliations are most painful?</li>
+        <li>Where do you spend time that feels like it shouldn't require your expertise?</li>
+        <li>What data is hardest to get or trust?</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>All Team — Management Interview #3: Head of Sales or Operations (60 min)</h4>
+    <p><strong>Focus: Revenue process and operational efficiency</strong></p>
+
+    <p><em>For Sales:</em></p>
+    <ul>
+        <li>How do leads come in? How do you track them?</li>
+        <li>Walk me through creating a quote or proposal</li>
+        <li>How do you know what's in your pipeline?</li>
+        <li>What's your follow-up process with prospects?</li>
+    </ul>
+
+    <p><em>For Operations:</em></p>
+    <ul>
+        <li>How do you schedule work/production?</li>
+        <li>How do you track job status or project progress?</li>
+        <li>Where do things get stuck or delayed?</li>
+        <li>What's manual that you wish was automated?</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Technical Lead + Analyst — Systems Deep Dive (2 hours)</h4>
+    <p>Create comprehensive systems inventory:</p>
+
+    <table>
+        <tr>
+            <th>System</th>
+            <th>Function</th>
+            <th>Users</th>
+            <th>Data Quality</th>
+            <th>Integration</th>
+            <th>Automation Potential</th>
+        </tr>
+        <tr>
+            <td>QuickBooks</td>
+            <td>Accounting</td>
+            <td>3</td>
+            <td>Medium</td>
+            <td>Bank feed only</td>
+            <td>Medium — close automation</td>
+        </tr>
+        <tr>
+            <td>Excel</td>
+            <td>Everything else</td>
+            <td>20</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>High — replace with proper tools</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>Sales, support</td>
+            <td>All</td>
+            <td>N/A</td>
+            <td>None</td>
+            <td>High — CRM + sequences</td>
+        </tr>
+    </table>
+</div>
+
+<h4>Afternoon (4 hours)</h4>
+
+<div class="time-block">
+    <h4>PE/Finance Lead — Industry AI Maturity Analysis (3 hours)</h4>
+    <p>This is critical and different from generic "competitor scan." We're assessing:</p>
+
+    <table>
+        <tr>
+            <th>Dimension</th>
+            <th>Questions to Answer</th>
+            <th>Sources</th>
+        </tr>
+        <tr>
+            <td><strong>Adoption Breadth</strong></td>
+            <td>How widely is AI used across business functions in this industry?</td>
+            <td>Industry reports, case studies, vendor marketing</td>
+        </tr>
+        <tr>
+            <td><strong>Adoption Depth</strong></td>
+            <td>Is it surface-level (chatbots) or operational (core processes)?</td>
+            <td>Job postings, tech stack analyses</td>
+        </tr>
+        <tr>
+            <td><strong>Leaders vs. Laggards</strong></td>
+            <td>Who are the AI leaders in this space? What are they doing?</td>
+            <td>Press releases, LinkedIn, conferences</td>
+        </tr>
+        <tr>
+            <td><strong>Table Stakes vs. Differentiator</strong></td>
+            <td>Is AI becoming required to compete, or still a differentiator?</td>
+            <td>Customer expectations, RFP requirements</td>
+        </tr>
+        <tr>
+            <td><strong>Typical Timeline</strong></td>
+            <td>How long does it take peers to implement meaningful AI?</td>
+            <td>Case studies, vendor claims</td>
+        </tr>
+    </table>
+
+    <h5>Output: Industry AI Maturity Scorecard</h5>
+    <table>
+        <tr>
+            <th>Factor</th>
+            <th>Assessment</th>
+            <th>Evidence</th>
+        </tr>
+        <tr>
+            <td>Industry AI adoption</td>
+            <td>Early / Emerging / Mainstream / Mature</td>
+            <td>[Cite sources]</td>
+        </tr>
+        <tr>
+            <td>AI in core operations</td>
+            <td>Rare / Occasional / Common / Standard</td>
+            <td>[Examples]</td>
+        </tr>
+        <tr>
+            <td>AI in sales/marketing</td>
+            <td>Rare / Occasional / Common / Standard</td>
+            <td>[Examples]</td>
+        </tr>
+        <tr>
+            <td>AI in finance/admin</td>
+            <td>Rare / Occasional / Common / Standard</td>
+            <td>[Examples]</td>
+        </tr>
+        <tr>
+            <td>Target's position vs. industry</td>
+            <td>Behind / At Parity / Ahead</td>
+            <td>[Comparison]</td>
+        </tr>
+        <tr>
+            <td>Catch-up timeline estimate</td>
+            <td>[X months to reach parity]</td>
+            <td>[Rationale]</td>
+        </tr>
+    </table>
+</div>
+
+<div class="time-block">
+    <h4>Technical Lead — Data Quality Assessment (1 hour)</h4>
+    <p>When data samples arrive, assess not just quality but <strong>automation readiness:</strong></p>
+
+    <table>
+        <tr>
+            <th>System</th>
+            <th>Data Quality</th>
+            <th>Joinability</th>
+            <th>Automation Readiness</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>CRM</td>
+            <td>Low (50% complete)</td>
+            <td>Poor</td>
+            <td>Low — needs cleanup first</td>
+            <td>6-8 weeks of data hygiene needed</td>
+        </tr>
+        <tr>
+            <td>ERP</td>
+            <td>Medium</td>
+            <td>Good</td>
+            <td>Medium</td>
+            <td>Can automate with some prep</td>
+        </tr>
+        <tr>
+            <td>Accounting</td>
+            <td>High</td>
+            <td>Good</td>
+            <td>High</td>
+            <td>Ready for automation</td>
+        </tr>
+    </table>
+</div>
+
+<div class="deliverables">
+    <h4>Day 2 Deliverables</h4>
+    <ul class="checklist">
+        <li>CFO and Sales/Ops interviews complete</li>
+        <li>Systems inventory with automation readiness</li>
+        <li>Industry AI maturity scorecard complete</li>
+        <li>Data quality and readiness assessment</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="day-header" id="day3">
+    <h3>DAY 3: Opportunity Identification & Sizing</h3>
+</div>
+
+<div class="warning-box">
+    <strong>This is the critical day. We're building the margin bridge.</strong>
+</div>
+
+<h4>Morning (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Opportunity Identification Session (2 hours)</h4>
+    <p>Bring together all interview notes and analysis. For each function, identify:</p>
+
+    <table>
+        <tr>
+            <th>Function</th>
+            <th>Current State</th>
+            <th>Opportunity</th>
+            <th>Type</th>
+            <th>Confidence</th>
+        </tr>
+        <tr>
+            <td>Finance</td>
+            <td>5-day close, 2 FTEs</td>
+            <td>Reduce to 2-day close</td>
+            <td>Efficiency</td>
+            <td>High</td>
+        </tr>
+        <tr>
+            <td>Sales</td>
+            <td>Manual quotes, 3 hrs each</td>
+            <td>Automate quoting</td>
+            <td>Efficiency + Speed</td>
+            <td>High</td>
+        </tr>
+        <tr>
+            <td>Ops</td>
+            <td>Excel scheduling</td>
+            <td>Scheduling tool</td>
+            <td>Efficiency</td>
+            <td>Medium</td>
+        </tr>
+        <tr>
+            <td>Sales</td>
+            <td>No outbound process</td>
+            <td>Add automated outbound</td>
+            <td>Revenue</td>
+            <td>Medium</td>
+        </tr>
+    </table>
+
+    <p><strong>Categorize opportunities:</strong></p>
+    <ol>
+        <li><strong>Efficiency Gains</strong> — Same output, less cost/time</li>
+        <li><strong>Capacity Expansion</strong> — More output, same cost</li>
+        <li><strong>Revenue Enhancement</strong> — Better conversion, faster cycles</li>
+        <li><strong>Risk Reduction</strong> — Fewer errors, better compliance</li>
+    </ol>
+</div>
+
+<div class="time-block">
+    <h4>PE/Finance Lead — Opportunity Economics Modeling (2 hours)</h4>
+    <p>For each opportunity, model the economics:</p>
+
+    <table>
+        <tr>
+            <th>Opportunity</th>
+            <th>Current Cost</th>
+            <th>Improved Cost</th>
+            <th>Annual Savings</th>
+            <th>Confidence</th>
+            <th>Timeline</th>
+        </tr>
+        <tr>
+            <td>Close automation</td>
+            <td>$180K (2 FTEs)</td>
+            <td>$90K (1 FTE + tools)</td>
+            <td>$90K</td>
+            <td>High</td>
+            <td>6 months</td>
+        </tr>
+        <tr>
+            <td>Quote automation</td>
+            <td>$75K (time value)</td>
+            <td>$15K</td>
+            <td>$60K</td>
+            <td>Medium</td>
+            <td>4 months</td>
+        </tr>
+    </table>
+
+    <div class="warning-box">
+        <strong>IMPORTANT: Be conservative.</strong> Use 50-70% realization factors. If you think savings is $100K, model $50-70K.
+    </div>
+</div>
+
+<h4>Afternoon (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Margin Bridge Construction (2 hours)</h4>
+    <p>Build the "AI Value Creation Bridge" — this is the core deliverable for the deal team.</p>
+
+    <pre>
+CURRENT STATE
+├── Revenue: $40M
+├── EBITDA: $4M (10% margin)
+└── Key cost drivers: [list]
+
+AI-ENABLED IMPROVEMENTS (Conservative Case)
+
+1. Finance Efficiency
+   ├── Opportunity: Close automation, reporting automation
+   ├── Investment: $50K implementation + $20K/year tools
+   ├── Savings: $75-100K/year (0.6-0.8 FTE equivalent)
+   ├── Timeline: 6 months to full run-rate
+   └── Confidence: High
+
+2. Sales Productivity
+   ├── Opportunity: Quote automation, CRM implementation, outbound sequences
+   ├── Investment: $40K implementation + $15K/year tools
+   ├── Savings: $50-75K/year (time value) + potential revenue lift
+   ├── Timeline: 4-6 months
+   └── Confidence: Medium
+
+3. Operations Efficiency
+   ├── Opportunity: Scheduling, status visibility
+   ├── Investment: $30K implementation + $10K/year tools
+   ├── Savings: $40-60K/year
+   ├── Timeline: 6-9 months
+   └── Confidence: Medium
+
+TOTAL CONSERVATIVE CASE
+├── Annual run-rate savings: $165-235K
+├── EBITDA impact: +40-60 bps
+├── Total investment (Year 1): $120-150K
+├── Payback: 6-10 months
+└── Confidence-weighted estimate: $180K (+45 bps)
+
+TOTAL BASE CASE (Higher confidence in execution)
+├── Annual run-rate savings: $250-350K
+├── EBITDA impact: +60-90 bps
+└── Requires: Strong execution, management buy-in
+    </pre>
+</div>
+
+<div class="time-block">
+    <h4>Technical Lead — Investment Requirements (1 hour)</h4>
+
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>One-Time Cost</th>
+            <th>Annual Cost</th>
+            <th>Timeline</th>
+        </tr>
+        <tr>
+            <td><strong>Tools/Software</strong></td>
+            <td>CRM, automation platform, BI</td>
+            <td>$15-25K</td>
+            <td>$30-50K</td>
+            <td>Immediate</td>
+        </tr>
+        <tr>
+            <td><strong>Implementation</strong></td>
+            <td>Configuration, integration, training</td>
+            <td>$60-100K</td>
+            <td>—</td>
+            <td>3-6 months</td>
+        </tr>
+        <tr>
+            <td><strong>Data Cleanup</strong></td>
+            <td>CRM hygiene, master data</td>
+            <td>$20-40K</td>
+            <td>—</td>
+            <td>2-3 months</td>
+        </tr>
+        <tr>
+            <td><strong>Change Management</strong></td>
+            <td>Training, adoption support</td>
+            <td>$15-25K</td>
+            <td>—</td>
+            <td>Ongoing</td>
+        </tr>
+        <tr style="background: var(--light); font-weight: bold;">
+            <td>TOTAL</td>
+            <td></td>
+            <td>$110-190K</td>
+            <td>$30-50K</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div class="time-block">
+    <h4>Analyst — Quick Wins List (1 hour)</h4>
+    <p><strong>Quick Wins Criteria:</strong></p>
+    <ul>
+        <li>Can start within 30 days of close</li>
+        <li>Visible results within 90 days</li>
+        <li>Low complexity / low risk</li>
+        <li>Builds momentum for bigger initiatives</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Quick Win</th>
+            <th>Function</th>
+            <th>Effort</th>
+            <th>Impact</th>
+            <th>Timeline</th>
+            <th>Why First</th>
+        </tr>
+        <tr>
+            <td>CRM implementation</td>
+            <td>Sales</td>
+            <td>Medium</td>
+            <td>High</td>
+            <td>60-90 days</td>
+            <td>Foundation for everything else</td>
+        </tr>
+        <tr>
+            <td>AP automation</td>
+            <td>Finance</td>
+            <td>Low</td>
+            <td>Medium</td>
+            <td>30-60 days</td>
+            <td>Immediate time savings, visible</td>
+        </tr>
+        <tr>
+            <td>Reporting dashboard</td>
+            <td>Finance</td>
+            <td>Low</td>
+            <td>Medium</td>
+            <td>45-60 days</td>
+            <td>CFO loves it, visible to board</td>
+        </tr>
+    </table>
+</div>
+
+<div class="deliverables">
+    <h4>Day 3 Deliverables</h4>
+    <ul class="checklist">
+        <li>Opportunity list with economics</li>
+        <li>Margin bridge (conservative + base case)</li>
+        <li>Investment requirements detailed</li>
+        <li>Quick wins prioritized</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="day-header" id="day4">
+    <h3>DAY 4: Synthesis & Reality Check</h3>
+</div>
+
+<h4>Morning (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Target vs. Industry Positioning (1 hour)</h4>
+    <p>Synthesize the industry analysis with target assessment:</p>
+
+    <pre>
+                    INDUSTRY AI MATURITY
+                    Low         Medium        High
+                ┌───────────┬───────────┬───────────┐
+         High   │ Ahead of  │ Leader    │ Expected  │
+                │ curve     │           │ standard  │
+TARGET          ├───────────┼───────────┼───────────┤
+AI       Medium │ Emerging  │ At parity │ Catching  │
+MATURITY        │ leader    │           │ up        │
+                ├───────────┼───────────┼───────────┤
+         Low    │ Industry  │ Behind    │ At risk   │
+                │ norm      │ peers     │           │
+                └───────────┴───────────┴───────────┘
+    </pre>
+
+    <p><strong>Determine:</strong></p>
+    <ul>
+        <li>Where does the target sit?</li>
+        <li>What's the risk of staying there?</li>
+        <li>What's the opportunity from moving?</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Analyst — Full Memo Draft (2 hours)</h4>
+    <p>Draft all sections using the memo template.</p>
+</div>
+
+<div class="time-block">
+    <h4>Engagement Lead — Executive Summary (1 hour)</h4>
+    <p>Write the "so what" section:</p>
+    <ul>
+        <li>Headline finding</li>
+        <li>Credible margin improvement range</li>
+        <li>Key dependencies/risks</li>
+        <li>Investment required</li>
+        <li>Recommendation</li>
+    </ul>
+</div>
+
+<h4>Afternoon (4 hours)</h4>
+
+<div class="time-block">
+    <h4>All Team — Internal Red Team (2 hours)</h4>
+    <p>Challenge every number:</p>
+    <ul>
+        <li>Is the margin bridge defensible?</li>
+        <li>Are we being too optimistic or pessimistic?</li>
+        <li>Would the deal team's operating partners believe this?</li>
+        <li>What would make us wrong?</li>
+    </ul>
+
+    <p><strong>Stress Test Questions:</strong></p>
+    <ul>
+        <li>"What if they only capture 50% of the savings?"</li>
+        <li>"What if implementation takes twice as long?"</li>
+        <li>"What if the team resists change?"</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>Analyst — Memo Revision (2 hours)</h4>
+    <p>Incorporate feedback, finalize draft.</p>
+</div>
+
+<div class="deliverables">
+    <h4>Day 4 Deliverables</h4>
+    <ul class="checklist">
+        <li>AI maturity positioning complete</li>
+        <li>Full memo draft</li>
+        <li>Red team complete</li>
+        <li>Revised memo</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="day-header" id="day5">
+    <h3>DAY 5: Finalization & Delivery</h3>
+</div>
+
+<h4>Morning (4 hours)</h4>
+
+<div class="time-block">
+    <h4>Engagement Lead — Final Review (1 hour)</h4>
+    <p>Verify:</p>
+    <ul>
+        <li>Numbers are defensible</li>
+        <li>Recommendations are actionable</li>
+        <li>Language is confident, not hedged</li>
+        <li>Deal team can use this in their IC memo</li>
+    </ul>
+</div>
+
+<div class="time-block">
+    <h4>PE/Finance Lead — IC-Ready Summary (1 hour)</h4>
+    <p>Create the 1-page drop-in:</p>
+
+    <pre>
+AI DILIGENCE SUMMARY — [TARGET NAME]
+
+HEADLINE: [One sentence summary]
+
+OPPORTUNITY SIZING:
+• Conservative case: +[X] bps EBITDA ([$ amount])
+• Base case: +[Y] bps EBITDA ([$ amount])
+• Investment required: $[Z] Year 1
+
+QUICK WINS (First 100 Days):
+1. [Win 1] — [Impact]
+2. [Win 2] — [Impact]
+3. [Win 3] — [Impact]
+
+INDUSTRY POSITIONING:
+• Industry AI maturity: [Level]
+• Target position: [Behind/Parity/Ahead]
+• Competitive risk: [Low/Medium/High]
+
+KEY DEPENDENCIES:
+• [Dependency 1]
+• [Dependency 2]
+
+RECOMMENDATION: [Proceed / Proceed with conditions / Concerns]
+    </pre>
+</div>
+
+<div class="time-block">
+    <h4>Technical Lead — Presentation (1 hour)</h4>
+    <p>Build 5-7 slide deck:</p>
+    <ol>
+        <li>Engagement Overview</li>
+        <li>Key Finding: Margin Opportunity</li>
+        <li>Opportunity Breakdown (the bridge)</li>
+        <li>Quick Wins & Timeline</li>
+        <li>Industry AI Context</li>
+        <li>Investment Requirements</li>
+        <li>Recommendations & Phase 2</li>
+    </ol>
+</div>
+
+<div class="time-block">
+    <h4>Analyst — Polish & Formatting (1 hour)</h4>
+    <p>Final formatting, appendices organized.</p>
+</div>
+
+<h4>Afternoon (4 hours)</h4>
+
+<ul>
+    <li>Dry run presentation (1 hour)</li>
+    <li>Final adjustments (1 hour)</li>
+    <li>Client logistics confirmed (30 min)</li>
+    <li>Buffer (1.5 hours)</li>
+</ul>
+
+<div class="deliverables">
+    <h4>Day 5 Deliverables</h4>
+    <ul class="checklist">
+        <li>Final AI Reality Memo</li>
+        <li>IC-Ready Summary (1 page)</li>
+        <li>Presentation deck</li>
+        <li>Delivery meeting scheduled</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3>DAY 6-7: Delivery & Phase 2 Scoping</h3>
+
+<p><strong>Delivery Meeting Agenda (60-90 min):</strong></p>
+<ol>
+    <li>Opening (5 min)</li>
+    <li>Key Finding: Margin Opportunity (10 min)</li>
+    <li>Opportunity Breakdown & Economics (15 min)</li>
+    <li>Industry Context & Positioning (10 min)</li>
+    <li>Quick Wins & Implementation Path (10 min)</li>
+    <li>Discussion & Q&A (20-30 min)</li>
+    <li>Phase 2 Discussion (10-15 min)</li>
+</ol>
+
+<hr>
+
+<h2 id="memo-template">Memo Template</h2>
+
+<pre>
+AI REALITY MEMO
+[Target Company Name]
+Prepared for [PE Fund Name]
+[Date]
+
+─────────────────────────────────────────────────────────────
+
+1. EXECUTIVE SUMMARY (1 page)
+
+   Headline Finding:
+   [One paragraph: What's the opportunity? What's credible?]
+
+   Key Conclusions:
+   • Credible EBITDA improvement: [X-Y bps] ($[A-B] annually)
+   • Total Year 1 investment required: $[Z]
+   • Payback period: [N] months
+   • Industry AI positioning: [Behind/Parity/Ahead]
+   • Quick wins available: [Yes/Limited/No]
+
+   Recommendation:
+   [Clear statement on whether AI-driven value creation is credible
+   and what it depends on]
+
+─────────────────────────────────────────────────────────────
+
+2. MARGIN BRIDGE: AI-DRIVEN VALUE CREATION (1.5 pages)
+
+   2.1 Current State Baseline
+   2.2 Opportunity Summary (table)
+   2.3 Conservative vs. Base Case
+   2.4 Key Dependencies
+
+─────────────────────────────────────────────────────────────
+
+3. QUICK WINS: FIRST 100 DAYS (1 page)
+
+   Prioritized quick wins table
+   Why These First: [rationale]
+
+─────────────────────────────────────────────────────────────
+
+4. DATA, SYSTEMS & READINESS (1 page)
+
+   4.1 Systems Landscape
+   4.2 Data Quality & Automation Readiness
+   4.3 Implementation Feasibility
+   4.4 Change Readiness
+
+─────────────────────────────────────────────────────────────
+
+5. INDUSTRY AI MATURITY & COMPETITIVE POSITION (1 page)
+
+   5.1 Industry AI Adoption (table by function)
+   5.2 Competitive Context
+   5.3 Risk Assessment
+
+─────────────────────────────────────────────────────────────
+
+6. INVESTMENT REQUIREMENTS (0.5 page)
+
+   Investment table + ROI Summary
+
+─────────────────────────────────────────────────────────────
+
+7. RECOMMENDATIONS & PHASE 2 (0.5 page)
+
+   Overall Assessment
+   Phase 2 Recommendations
+   Recommended Prototype
+
+─────────────────────────────────────────────────────────────
+
+APPENDIX
+A. Detailed Opportunity Economics
+B. Systems Inventory
+C. Process Observations
+D. Industry Research Sources
+E. Interview Notes Summary
+</pre>
+
+<hr>
+
+<h2 id="interview-questions">Interview Questions</h2>
+
+<h3>For Targets with NO AI Claims (Most Common)</h3>
+
+<div class="highlight-box">
+    <strong>Framing:</strong> "We're looking for opportunities, not auditing what you've done."
+</div>
+
+<h4>Process Efficiency Questions</h4>
+<ul>
+    <li>What takes longer than it should in your business?</li>
+    <li>Where do your best people spend time on low-value work?</li>
+    <li>What would you automate if you could wave a magic wand?</li>
+    <li>Where do things fall through the cracks?</li>
+</ul>
+
+<h4>Capacity Questions</h4>
+<ul>
+    <li>If your team had 20% more capacity tomorrow, what would you do with it?</li>
+    <li>What can't you do today because you don't have the bandwidth?</li>
+    <li>Where are you turning away business or saying no to customers?</li>
+</ul>
+
+<h4>Data & Visibility Questions</h4>
+<ul>
+    <li>What decisions do you wish you had better data for?</li>
+    <li>What reports do you need that you can't easily get?</li>
+    <li>Where do you have to "go find" information instead of it coming to you?</li>
+</ul>
+
+<h4>Change Readiness Questions</h4>
+<ul>
+    <li>If a new owner wanted to implement new tools, how would your team respond?</li>
+    <li>Who are your most adaptable people?</li>
+    <li>What's been tried before that didn't stick?</li>
+</ul>
+
+<h3>For Targets with AI Claims (Less Common)</h3>
+<p>Add these if they mention AI/automation:</p>
+<ul>
+    <li>Tell me about [the AI initiative]. What does it actually do?</li>
+    <li>What results have you seen?</li>
+    <li>Who built it / maintains it?</li>
+    <li>What didn't work as expected?</li>
+</ul>
+
+<hr>
+
+<h2 id="rules-of-thumb">Rules of Thumb</h2>
+
+<h3>Conservative Estimation Guidelines</h3>
+
+<table>
+    <tr>
+        <th>Opportunity Type</th>
+        <th>Typical Range</th>
+        <th>Realization Factor</th>
+    </tr>
+    <tr>
+        <td>FTE efficiency (reduce headcount)</td>
+        <td>$50-80K per FTE</td>
+        <td>50-60%</td>
+    </tr>
+    <tr>
+        <td>FTE efficiency (same headcount, more output)</td>
+        <td>20-30% of FTE cost</td>
+        <td>60-70%</td>
+    </tr>
+    <tr>
+        <td>Time savings (not FTE reduction)</td>
+        <td>$50-75/hour value</td>
+        <td>40-50%</td>
+    </tr>
+    <tr>
+        <td>Error reduction</td>
+        <td>Varies by impact</td>
+        <td>50-60%</td>
+    </tr>
+    <tr>
+        <td>Revenue acceleration</td>
+        <td>Highly variable</td>
+        <td>30-50%</td>
+    </tr>
+</table>
+
+<h3>Investment Estimation Guidelines</h3>
+
+<table>
+    <tr>
+        <th>Component</th>
+        <th>LMM Range</th>
+    </tr>
+    <tr>
+        <td>CRM implementation (HubSpot/Salesforce)</td>
+        <td>$25-50K</td>
+    </tr>
+    <tr>
+        <td>Accounting automation</td>
+        <td>$15-30K</td>
+    </tr>
+    <tr>
+        <td>Custom AI automation (per use case)</td>
+        <td>$30-75K</td>
+    </tr>
+    <tr>
+        <td>Data cleanup / migration</td>
+        <td>$20-50K</td>
+    </tr>
+    <tr>
+        <td>Training / change management</td>
+        <td>$15-25K</td>
+    </tr>
+    <tr>
+        <td>Annual software costs</td>
+        <td>$20-60K</td>
+    </tr>
+</table>
+
+<hr>
+
+<div class="success-box">
+    <p><strong>Remember:</strong> This SOP is designed for targets that aren't making AI claims—which is most of them. The value is in showing the deal team what's <em>possible</em>, not debunking what's <em>claimed</em>.</p>
+</div>
+
+<hr>
+
+<p style="text-align: center; color: var(--gray); margin-top: 40px;">
+    <strong>CoreFour Advisors</strong><br>
+    Phase 1 SOP v2.0<br>
+    <em>AI Reality Check — Execution Playbook</em>
+</p>
+
+</body>
+</html>

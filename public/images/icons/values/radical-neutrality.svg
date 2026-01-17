@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <!-- Radical Neutrality - Balanced level indicator -->
+  <!-- Horizontal balance bar -->
+  <line x1="10" y1="30" x2="50" y2="30" stroke="#0A192F" stroke-width="4" stroke-linecap="round"/>
+  <!-- Center indicator -->
+  <circle cx="30" cy="30" r="6" fill="#C9A962"/>
+  <!-- Level marks -->
+  <line x1="20" y1="24" x2="20" y2="36" stroke="#64748B" stroke-width="2"/>
+  <line x1="40" y1="24" x2="40" y2="36" stroke="#64748B" stroke-width="2"/>
+  <!-- Top bubble level -->
+  <rect x="22" y="14" width="16" height="8" rx="4" stroke="#0A192F" stroke-width="2" fill="none"/>
+  <circle cx="30" cy="18" r="3" fill="#3B82F6"/>
+</svg>

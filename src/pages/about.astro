@@ -1,0 +1,636 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    title: 'Defensibility First',
+    description: "If we can't prove it in a spreadsheet or a prototype, we don't present it.",
+    icon: '/images/icons/values/defensibility-first.svg'
+  },
+  {
+    title: 'Speed to Signal',
+    description: 'We operate in deal time (15-day sprints), not consulting time (6-month roadmaps).',
+    icon: '/images/icons/values/speed-to-signal.svg'
+  },
+  {
+    title: 'Code over Concepts',
+    description: "We don't just recommend; we build the prototype to prove feasibility.",
+    icon: '/images/icons/values/code-over-concepts.svg'
+  },
+  {
+    title: 'Radical Neutrality',
+    description: 'We are just as happy to kill a bad AI project as we are to validate a good one.',
+    icon: '/images/icons/values/radical-neutrality.svg'
+  }
+];
+
+const disciplines = [
+  {
+    code: 'PE',
+    name: 'Private Equity',
+    description: 'IRR modeling, IC memo structure, value creation playbooks. We speak the language of returns.',
+    icon: '/images/icons/disciplines/pe.svg'
+  },
+  {
+    code: 'AI',
+    name: 'AI Engineering',
+    description: 'ML architecture, model validation, data pipeline assessment. We know what real AI looks like.',
+    icon: '/images/icons/disciplines/ai.svg'
+  },
+  {
+    code: 'UX',
+    name: 'User Experience',
+    description: 'Operator workflow analysis, adoption forecasting. We understand how technology gets used—or abandoned.',
+    icon: '/images/icons/disciplines/ux.svg'
+  },
+  {
+    code: 'OP',
+    name: 'Operations',
+    description: 'Process mapping, implementation planning, change management. We know how things actually get done.',
+    icon: '/images/icons/disciplines/op.svg'
+  }
+];
+
+const team = [
+  {
+    name: 'Joel Willett',
+    role: 'Partner, Strategy',
+    bio: 'Defense Council Fellow at Truman National Security Project. Brings strategic analysis expertise with experience in complex multi-stakeholder environments. Bilingual in English and Russian.',
+    linkedin: 'https://www.linkedin.com/in/joelwillett',
+    image: '/images/team/joel-willett.png'
+  },
+  {
+    name: 'Sarah Bhatia',
+    role: 'Partner, Product',
+    bio: 'Director of AI Product Innovation at Slingshot and Adjunct Professor at University of Louisville College of Business. Specializes in AI strategy, product vision, and turning ideas into scalable solutions. MBA from UofL with deep expertise in cross-functional leadership.',
+    linkedin: 'https://www.linkedin.com/in/sarahbhatia',
+    image: '/images/team/sarah-bhatia.png'
+  },
+  {
+    name: 'Dan Murphy',
+    role: 'Managing Partner',
+    bio: 'Former operator and founder at Experience Tech, LLC. University of Louisville College of Business. Deep roots in Louisville\'s business and innovation ecosystem with extensive experience bridging technology and community development.',
+    linkedin: 'https://www.linkedin.com/in/daniellmurphy',
+    image: '/images/team/dan-murphy.png'
+  },
+  {
+    name: 'Jermaine Watkins',
+    role: 'Partner, Technology',
+    bio: 'Software architect and serial entrepreneur with a decade of experience. Y Combinator alum (2019). Board member at Venture Connectors and St. John Center. Former Code Louisville mentor with expertise in AI systems and developer tools.',
+    linkedin: 'https://www.linkedin.com/in/jermainewatkins',
+    image: '/images/team/jermaine-watkins.png'
+  }
+];
+---
+
+<BaseLayout
+  title="About"
+  description="CoreFour Advisors was born from frustration with AI Tourism. We bring rigor to AI diligence for Private Equity deal teams."
+>
+  <!-- Hero -->
+  <section class="page-hero" style="background-image: url('/images/heroes/about-hero.svg');">
+    <div class="container">
+      <p class="hero-eyebrow">ABOUT COREFOUR</p>
+      <h1>Auditors of the Future</h1>
+      <p class="hero-subtitle">
+        We exist to answer one question for Private Equity: "Is this real?"
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-content">
+          <p class="section-eyebrow">OUR STORY</p>
+          <h2>Born from Frustration with AI Tourism</h2>
+          <p>
+            Private Equity firms are inundated with pitch decks promising "digital transformation" but lacking operational reality. Management teams claim "proprietary AI" that turns out to be Excel macros with better marketing.
+          </p>
+          <p>
+            <strong>CoreFour</strong> was created to bring the rigor of financial diligence to the chaos of AI. We are not consultants; we are auditors of the future. We combine four distinct disciplines—PE, AI, UX, and Operations—to deliver one thing: the truth.
+          </p>
+          <p>
+            We don't sell technology. We validate it. And when validation fails, we say so.
+          </p>
+        </div>
+        <div class="story-visual">
+          <div class="story-card">
+            <span class="big-number">90%</span>
+            <p>of AI claims in CIMs are overstated.</p>
+            <span class="divider"></span>
+            <span class="big-number highlight">10%</span>
+            <p>generate real margin. We find them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="mission-content text-center">
+        <p class="section-eyebrow" style="color: var(--color-gold);">OUR MISSION</p>
+        <h2>Replace Technical Speculation with Operational Certainty</h2>
+        <p class="mission-text">
+          We provide Private Equity investors with defensible, PE-native answers regarding AI value creation. Every recommendation is backed by code, not conjecture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">OUR VALUES</p>
+        <h2>How We Operate</h2>
+        <p>The principles that guide every engagement.</p>
+      </div>
+      <div class="grid grid-4">
+        {values.map(value => (
+          <div class="value-card">
+            <img src={value.icon} alt={value.title} class="value-icon" />
+            <h3>{value.title}</h3>
+            <p>{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Disciplines -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">THE FOUR DISCIPLINES</p>
+        <h2>Why "CoreFour"</h2>
+        <p>Four perspectives. One integrated answer. No blind spots.</p>
+      </div>
+      <div class="disciplines-grid">
+        {disciplines.map(discipline => (
+          <div class="discipline-card">
+            <img src={discipline.icon} alt={discipline.name} class="discipline-icon" />
+            <span class="discipline-code">{discipline.code}</span>
+            <h3>{discipline.name}</h3>
+            <p>{discipline.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <div class="container">
+      <div class="experience-grid">
+        <div class="experience-content">
+          <p class="section-eyebrow">COLLECTIVE EXPERIENCE</p>
+          <h2>Senior Operators, Not Junior Analysts</h2>
+          <p>
+            Every engagement is led by practitioners who have built AI systems, closed deals, and operated portfolio companies. We don't learn on your dime.
+          </p>
+          <ul class="experience-list">
+            <li>Former PE operating partners and deal team leads</li>
+            <li>Ex-FAANG AI/ML engineers and architects</li>
+            <li>Enterprise UX and product leaders</li>
+            <li>Management consultants turned operators</li>
+          </ul>
+        </div>
+        <div class="experience-stats">
+          <div class="exp-stat">
+            <span class="exp-value">50+</span>
+            <span class="exp-label">Years Combined PE Experience</span>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-value">100+</span>
+            <span class="exp-label">AI Systems Built</span>
+          </div>
+          <div class="exp-stat">
+            <span class="exp-value">$5B+</span>
+            <span class="exp-label">Deal Value Advised</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">OUR TEAM</p>
+        <h2>The People Behind CoreFour</h2>
+        <p>Practitioners who have built AI systems, closed deals, and operated portfolio companies.</p>
+      </div>
+      <div class="team-grid">
+        {team.map(member => (
+          <div class="team-card">
+            <div class="team-image">
+              <img src={member.image} alt={member.name} />
+            </div>
+            <div class="team-info">
+              <h3>{member.name}</h3>
+              <span class="team-role">{member.role}</span>
+              <p>{member.bio}</p>
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" class="linkedin-link">
+                View LinkedIn →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section section-dark">
+    <div class="container">
+      <div class="cta-content text-center">
+        <h2>Ready to Get Clarity on Your Next Deal?</h2>
+        <p>Let's discuss how we can help separate AI reality from fiction.</p>
+        <a href="/contact" class="btn btn-white">Start a Conversation</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 5rem 1.5rem;
+    background-color: var(--color-secondary);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+  }
+
+  .page-hero h1 {
+    color: white;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 1rem auto 0;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Story */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .story-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .story-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+  }
+
+  .story-content strong {
+    color: var(--color-secondary);
+  }
+
+  .story-card {
+    background: var(--color-secondary);
+    color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .big-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .big-number.highlight {
+    color: var(--color-gold);
+  }
+
+  .story-card p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .divider {
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-text-light);
+    margin: 1.5rem auto;
+  }
+
+  /* Mission */
+  .mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .mission-text {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+  }
+
+  /* Values */
+  .value-card {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-gold);
+  }
+
+  .value-card p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  /* Disciplines */
+  .disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .discipline-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .discipline-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .discipline-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+  }
+
+  .discipline-code {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-gold);
+    background: var(--color-background-alt);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .discipline-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .discipline-card p {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Experience */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .experience-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-content > p {
+    color: var(--color-text-light);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .experience-list li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .experience-list li:last-child {
+    border-bottom: none;
+  }
+
+  .experience-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  .experience-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .exp-stat {
+    background: var(--color-background-alt);
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .exp-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    min-width: 100px;
+  }
+
+  .exp-label {
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .team-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-image {
+    flex-shrink: 0;
+  }
+
+  .team-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+
+  .team-card:hover .team-image img {
+    filter: grayscale(0%);
+  }
+
+  .team-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-secondary);
+  }
+
+  .team-role {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .team-info p {
+    color: var(--color-text-light);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .linkedin-link {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .linkedin-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .story-grid,
+    .experience-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .disciplines-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .team-image img {
+      width: 120px;
+      height: 120px;
+    }
+
+    .mission-text {
+      font-size: 1.125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .disciplines-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

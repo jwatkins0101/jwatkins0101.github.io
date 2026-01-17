@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- Radical Neutrality - Balanced scales -->
+  <!-- Center post -->
+  <line x1="40" y1="20" x2="40" y2="70" stroke="#0A192F" stroke-width="3" stroke-linecap="round"/>
+  <!-- Balance beam -->
+  <line x1="12" y1="30" x2="68" y2="30" stroke="#0A192F" stroke-width="3" stroke-linecap="round"/>
+  <!-- Left scale pan -->
+  <path d="M12,30 L8,45 Q12,50 20,50 Q28,50 32,45 L28,30" stroke="#C9A962" stroke-width="2" fill="none"/>
+  <!-- Right scale pan -->
+  <path d="M52,30 L48,45 Q52,50 60,50 Q68,50 72,45 L68,30" stroke="#C9A962" stroke-width="2" fill="none"/>
+  <!-- Center fulcrum -->
+  <polygon points="34,22 46,22 40,12" fill="#0A192F"/>
+  <!-- Base -->
+  <line x1="28" y1="70" x2="52" y2="70" stroke="#0A192F" stroke-width="3" stroke-linecap="round"/>
+</svg>

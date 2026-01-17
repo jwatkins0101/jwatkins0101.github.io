@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <!-- Homepage Hero Background - Subtle diamond pattern on platinum -->
+  <rect width="1920" height="1080" fill="#F1F5F9"/>
+
+  <!-- Scattered diamond shapes at low opacity -->
+  <g opacity="0.08" fill="#0A192F">
+    <polygon points="150,100 180,130 150,160 120,130"/>
+    <polygon points="400,200 430,230 400,260 370,230"/>
+    <polygon points="800,80 830,110 800,140 770,110"/>
+    <polygon points="1200,150 1230,180 1200,210 1170,180"/>
+    <polygon points="1600,100 1630,130 1600,160 1570,130"/>
+    <polygon points="300,400 330,430 300,460 270,430"/>
+    <polygon points="600,350 630,380 600,410 570,380"/>
+    <polygon points="1000,300 1030,330 1000,360 970,330"/>
+    <polygon points="1400,380 1430,410 1400,440 1370,410"/>
+    <polygon points="1750,350 1780,380 1750,410 1720,380"/>
+    <polygon points="200,600 230,630 200,660 170,630"/>
+    <polygon points="500,550 530,580 500,610 470,580"/>
+    <polygon points="900,500 930,530 900,560 870,530"/>
+    <polygon points="1300,580 1330,610 1300,640 1270,610"/>
+    <polygon points="1650,550 1680,580 1650,610 1620,580"/>
+    <polygon points="100,800 130,830 100,860 70,830"/>
+    <polygon points="450,750 480,780 450,810 420,780"/>
+    <polygon points="850,700 880,730 850,760 820,730"/>
+    <polygon points="1150,780 1180,810 1150,840 1120,810"/>
+    <polygon points="1500,720 1530,750 1500,780 1470,750"/>
+    <polygon points="1800,800 1830,830 1800,860 1770,830"/>
+    <polygon points="350,950 380,980 350,1010 320,980"/>
+    <polygon points="700,900 730,930 700,960 670,930"/>
+    <polygon points="1100,950 1130,980 1100,1010 1070,980"/>
+    <polygon points="1450,920 1480,950 1450,980 1420,950"/>
+  </g>
+
+  <!-- Larger 4-segment diamonds at very low opacity -->
+  <g opacity="0.05">
+    <g transform="translate(250, 250)">
+      <polygon points="0,-40 40,0 0,0" fill="#0A192F"/>
+      <polygon points="0,0 40,0 0,40" fill="#C9A962"/>
+      <polygon points="0,0 0,40 -40,0" fill="#0A192F"/>
+      <polygon points="-40,0 0,0 0,-40" fill="#64748B"/>
+    </g>
+    <g transform="translate(900, 450)">
+      <polygon points="0,-50 50,0 0,0" fill="#0A192F"/>
+      <polygon points="0,0 50,0 0,50" fill="#C9A962"/>
+      <polygon points="0,0 0,50 -50,0" fill="#0A192F"/>
+      <polygon points="-50,0 0,0 0,-50" fill="#64748B"/>
+    </g>
+    <g transform="translate(1500, 300)">
+      <polygon points="0,-35 35,0 0,0" fill="#0A192F"/>
+      <polygon points="0,0 35,0 0,35" fill="#C9A962"/>
+      <polygon points="0,0 0,35 -35,0" fill="#0A192F"/>
+      <polygon points="-35,0 0,0 0,-35" fill="#64748B"/>
+    </g>
+    <g transform="translate(600, 800)">
+      <polygon points="0,-45 45,0 0,0" fill="#0A192F"/>
+      <polygon points="0,0 45,0 0,45" fill="#C9A962"/>
+      <polygon points="0,0 0,45 -45,0" fill="#0A192F"/>
+      <polygon points="-45,0 0,0 0,-45" fill="#64748B"/>
+    </g>
+    <g transform="translate(1700, 700)">
+      <polygon points="0,-40 40,0 0,0" fill="#0A192F"/>
+      <polygon points="0,0 40,0 0,40" fill="#C9A962"/>
+      <polygon points="0,0 0,40 -40,0" fill="#0A192F"/>
+      <polygon points="-40,0 0,0 0,-40" fill="#64748B"/>
+    </g>
+  </g>
+</svg>

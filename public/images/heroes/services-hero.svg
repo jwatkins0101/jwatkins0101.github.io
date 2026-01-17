@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" fill="none">
+  <!-- Services Hero - Blueprint/schematic pattern on navy -->
+  <rect width="1920" height="600" fill="#0A192F"/>
+
+  <!-- Grid lines -->
+  <g stroke="#C9A962" stroke-width="0.5" opacity="0.15">
+    <!-- Vertical lines -->
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+    <line x1="900" y1="0" x2="900" y2="600"/>
+    <line x1="1100" y1="0" x2="1100" y2="600"/>
+    <line x1="1300" y1="0" x2="1300" y2="600"/>
+    <line x1="1500" y1="0" x2="1500" y2="600"/>
+    <line x1="1700" y1="0" x2="1700" y2="600"/>
+    <!-- Horizontal lines -->
+    <line x1="0" y1="100" x2="1920" y2="100"/>
+    <line x1="0" y1="200" x2="1920" y2="200"/>
+    <line x1="0" y1="300" x2="1920" y2="300"/>
+    <line x1="0" y1="400" x2="1920" y2="400"/>
+    <line x1="0" y1="500" x2="1920" y2="500"/>
+  </g>
+
+  <!-- Blueprint accent lines in blue -->
+  <g stroke="#3B82F6" stroke-width="1" opacity="0.2">
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+    <line x1="1400" y1="0" x2="1400" y2="600"/>
+    <line x1="1800" y1="0" x2="1800" y2="600"/>
+    <line x1="0" y1="150" x2="1920" y2="150"/>
+    <line x1="0" y1="450" x2="1920" y2="450"/>
+  </g>
+
+  <!-- Diamond accents -->
+  <g opacity="0.1">
+    <polygon points="400,300 430,330 400,360 370,330" fill="#C9A962"/>
+    <polygon points="800,200 830,230 800,260 770,230" fill="#3B82F6"/>
+    <polygon points="1200,350 1230,380 1200,410 1170,380" fill="#C9A962"/>
+    <polygon points="1600,250 1630,280 1600,310 1570,280" fill="#3B82F6"/>
+  </g>
+
+  <!-- Corner brackets -->
+  <g stroke="#C9A962" stroke-width="2" opacity="0.3" fill="none">
+    <path d="M30,30 L30,80 M30,30 L80,30"/>
+    <path d="M1890,30 L1890,80 M1890,30 L1840,30"/>
+    <path d="M30,570 L30,520 M30,570 L80,570"/>
+    <path d="M1890,570 L1890,520 M1890,570 L1840,570"/>
+  </g>
+</svg>

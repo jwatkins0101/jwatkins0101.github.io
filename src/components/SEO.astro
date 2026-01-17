@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  image = '/og-image.jpg',
+  type = 'website'
+} = Astro.props;
+
+const siteName = 'CoreFour Advisors';
+const fullTitle = title === 'Home' ? `${siteName} | AI Diligence for Private Equity` : `${title} | ${siteName}`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonical} />
+
+<!-- Keywords for PE/AI Diligence -->
+<meta name="keywords" content="AI diligence, private equity, PE due diligence, AI validation, technical diligence, deal diligence, AI assessment, portfolio company AI, value creation, EBITDA improvement" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonical} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": siteName,
+  "url": Astro.site,
+  "description": "AI Diligence for Private Equity deal teams. We validate AI claims and provide defensible, IC-ready recommendations.",
+  "areaServed": "Worldwide",
+  "serviceType": ["AI Diligence", "Technical Due Diligence", "Private Equity Advisory"],
+  "priceRange": "$$$",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "hello@corefouradvisors.com",
+    "availableLanguage": "English"
+  }
+})} />

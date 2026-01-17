@@ -1,0 +1,230 @@
+---
+interface Props {
+  formId?: string;
+  title?: string;
+  submitText?: string;
+}
+
+const {
+  formId = 'lead-form',
+  title = 'Get in Touch',
+  submitText = 'Send Message'
+} = Astro.props;
+
+// Replace this with your Lambda API Gateway endpoint
+const LAMBDA_ENDPOINT = 'YOUR_LAMBDA_API_ENDPOINT';
+---
+
+<div class="lead-form-wrapper">
+  {title && <h3 class="form-title">{title}</h3>}
+
+  <form id={formId} class="lead-form" data-endpoint={LAMBDA_ENDPOINT}>
+    <div class="form-group">
+      <label for={`${formId}-name`}>Full Name *</label>
+      <input
+        type="text"
+        id={`${formId}-name`}
+        name="name"
+        required
+        autocomplete="name"
+        placeholder="John Smith"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for={`${formId}-email`}>Email Address *</label>
+      <input
+        type="email"
+        id={`${formId}-email`}
+        name="email"
+        required
+        autocomplete="email"
+        placeholder="john@company.com"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for={`${formId}-company`}>Company</label>
+      <input
+        type="text"
+        id={`${formId}-company`}
+        name="company"
+        autocomplete="organization"
+        placeholder="Company Inc."
+      />
+    </div>
+
+    <div class="form-group">
+      <label for={`${formId}-phone`}>Phone Number</label>
+      <input
+        type="tel"
+        id={`${formId}-phone`}
+        name="phone"
+        autocomplete="tel"
+        placeholder="+1 (555) 123-4567"
+      />
+    </div>
+
+    <div class="form-group full-width">
+      <label for={`${formId}-message`}>Message *</label>
+      <textarea
+        id={`${formId}-message`}
+        name="message"
+        rows="4"
+        required
+        placeholder="Tell us about your project..."
+      ></textarea>
+    </div>
+
+    <div class="form-group full-width">
+      <button type="submit" class="btn btn-primary btn-lg">
+        <span class="btn-text">{submitText}</span>
+        <span class="btn-loading" hidden>Sending...</span>
+      </button>
+    </div>
+
+    <div class="form-message" hidden></div>
+  </form>
+</div>
+
+<script>
+  document.querySelectorAll('.lead-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formEl = e.target as HTMLFormElement;
+      const endpoint = formEl.dataset.endpoint;
+      const submitBtn = formEl.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const btnText = submitBtn.querySelector('.btn-text') as HTMLElement;
+      const btnLoading = submitBtn.querySelector('.btn-loading') as HTMLElement;
+      const messageEl = formEl.querySelector('.form-message') as HTMLElement;
+
+      // Get form data
+      const formData = new FormData(formEl);
+      const data = Object.fromEntries(formData.entries());
+
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.hidden = true;
+      btnLoading.hidden = false;
+      messageEl.hidden = true;
+
+      try {
+        // If endpoint is placeholder, show success anyway for demo
+        if (endpoint === 'YOUR_LAMBDA_API_ENDPOINT') {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          messageEl.textContent = 'Thank you! We\'ll be in touch soon.';
+          messageEl.className = 'form-message success';
+          messageEl.hidden = false;
+          formEl.reset();
+        } else {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            messageEl.textContent = 'Thank you! We\'ll be in touch soon.';
+            messageEl.className = 'form-message success';
+            messageEl.hidden = false;
+            formEl.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        }
+      } catch (error) {
+        messageEl.textContent = 'Something went wrong. Please try again.';
+        messageEl.className = 'form-message error';
+        messageEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+        btnText.hidden = false;
+        btnLoading.hidden = true;
+      }
+    });
+  });
+</script>
+
+<style>
+  .lead-form-wrapper {
+    max-width: 600px;
+  }
+
+  .form-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .lead-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .form-message {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .form-message.success {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  @media (max-width: 640px) {
+    .lead-form {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

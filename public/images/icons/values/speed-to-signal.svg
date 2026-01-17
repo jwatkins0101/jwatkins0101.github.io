@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <!-- Speed to Signal - Signal wave cutting through noise -->
+  <!-- Noise dots -->
+  <g fill="#64748B" opacity="0.3">
+    <circle cx="10" cy="15" r="2"/>
+    <circle cx="18" cy="25" r="1.5"/>
+    <circle cx="8" cy="35" r="2"/>
+    <circle cx="15" cy="45" r="1.5"/>
+    <circle cx="52" cy="18" r="1.5"/>
+    <circle cx="48" cy="38" r="2"/>
+    <circle cx="55" cy="48" r="1.5"/>
+  </g>
+  <!-- Signal wave -->
+  <path d="M5,30 Q15,30 20,20 T35,30 T50,30 T55,30" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Arrow -->
+  <polygon points="55,30 48,24 48,36" fill="#3B82F6"/>
+</svg>

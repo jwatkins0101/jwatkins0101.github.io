@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60">
+  <!-- Bracket mark -->
+  <path d="M0 0 L30 0 L30 6 L6 6 L6 54 L30 54 L30 60 L0 60 Z" fill="#3B82F6"/>
+
+  <!-- COREFOUR text -->
+  <text x="45" y="43" font-family="'Outfit', 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="700" fill="#0A192F">COREFOUR</text>
+</svg>

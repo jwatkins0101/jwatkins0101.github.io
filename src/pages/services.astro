@@ -1,0 +1,634 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const process = [
+  {
+    step: '01',
+    title: 'Discovery',
+    description: 'Initial call to understand the deal context, target company, and specific AI claims to validate.'
+  },
+  {
+    step: '02',
+    title: 'Build',
+    description: 'Deep technical assessment, data analysis, and prototype development with the target\'s real data.'
+  },
+  {
+    step: '03',
+    title: 'Deliver',
+    description: 'IC-ready documentation, working prototype, and deal team presentation with clear recommendations.'
+  }
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="CoreFour offers AI Reality Check ($75K, 5-7 days) and Proof of Concept ($125K, 10-15 days) engagements for Private Equity deal teams."
+>
+  <!-- Hero -->
+  <section class="page-hero" style="background-image: url('/images/heroes/services-hero.svg');">
+    <div class="container">
+      <p class="hero-eyebrow">OUR SERVICES</p>
+      <h1>AI Diligence. Deal Timeline.</h1>
+      <p class="hero-subtitle">
+        Two structured offerings designed for how PE actually works. Clear scope, fixed price, defensible output.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid">
+        <!-- Phase 1 -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <img src="/images/icons/services/phase1-reality-check.svg" alt="AI Reality Check" class="pricing-icon" />
+            <span class="phase-label">PHASE 1</span>
+            <h2>AI Reality Check</h2>
+            <div class="price">
+              <span class="amount">$75,000</span>
+              <span class="timeline">5-7 Days</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <p class="pricing-desc">
+              Rapid assessment to validate AI claims before significant diligence investment. Get clarity fast.
+            </p>
+            <h4>Four Questions Answered:</h4>
+            <ul class="feature-list">
+              <li>
+                <span class="status-dot"></span>
+                Is the AI claim real or vapor?
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                What's the true technical maturity level?
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                What margin improvement is realistic?
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                What are the critical implementation risks?
+              </li>
+            </ul>
+            <h4>Deliverables:</h4>
+            <ul class="deliverable-list">
+              <li>AI Reality Memo (10-15 pages)</li>
+              <li>IC-Ready Executive Summary (2 pages)</li>
+              <li>Go/No-Go Recommendation with rationale</li>
+              <li>Risk register with mitigation strategies</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary btn-full">Request Phase 1</a>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <img src="/images/icons/services/phase2-proof-of-concept.svg" alt="Proof of Concept" class="pricing-icon" />
+            <span class="phase-label">PHASE 2</span>
+            <h2>Proof of Concept</h2>
+            <div class="price">
+              <span class="amount">$125,000</span>
+              <span class="timeline">10-15 Days</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <p class="pricing-desc">
+              Working prototype that proves feasibility with real data. Move from theory to evidence.
+            </p>
+            <h4>What You Get:</h4>
+            <ul class="feature-list">
+              <li>
+                <span class="status-dot"></span>
+                Functional prototype with target's real data
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                100-day post-close implementation roadmap
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                5 detailed AI opportunity profiles
+              </li>
+              <li>
+                <span class="status-dot"></span>
+                Quantified margin improvement model
+              </li>
+            </ul>
+            <h4>Deliverables:</h4>
+            <ul class="deliverable-list">
+              <li>Working prototype (deployed & documented)</li>
+              <li>Technical architecture blueprint</li>
+              <li>Implementation cost model</li>
+              <li>Value creation bridge to EBITDA</li>
+            </ul>
+            <a href="/contact" class="btn btn-secondary btn-full">Request Phase 2</a>
+          </div>
+        </div>
+
+        <!-- Full Engagement -->
+        <div class="pricing-card featured">
+          <span class="best-value">BEST VALUE</span>
+          <div class="pricing-header">
+            <img src="/images/icons/services/full-engagement.svg" alt="Full Engagement" class="pricing-icon" />
+            <span class="phase-label">FULL ENGAGEMENT</span>
+            <h2>Reality Check + POC</h2>
+            <div class="price">
+              <span class="amount">$175,000</span>
+              <span class="timeline">~3 Weeks</span>
+            </div>
+            <p class="savings">Save $25,000 vs. separate engagements</p>
+          </div>
+          <div class="pricing-body">
+            <p class="pricing-desc">
+              Complete AI diligence: from initial validation through working proof. The definitive answer.
+            </p>
+            <h4>Complete Package:</h4>
+            <ul class="feature-list">
+              <li>
+                <span class="status-dot go"></span>
+                Everything in Phase 1 + Phase 2
+              </li>
+              <li>
+                <span class="status-dot go"></span>
+                Seamless handoff between phases
+              </li>
+              <li>
+                <span class="status-dot go"></span>
+                Priority scheduling
+              </li>
+              <li>
+                <span class="status-dot go"></span>
+                Extended post-close support (30 days)
+              </li>
+            </ul>
+            <h4>Additional Deliverables:</h4>
+            <ul class="deliverable-list">
+              <li>Consolidated IC presentation deck</li>
+              <li>Management team interview guide</li>
+              <li>Post-close 100-day plan activation</li>
+            </ul>
+            <a href="/contact" class="btn btn-primary btn-full">Request Full Engagement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Context -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="roi-grid">
+        <div class="roi-content">
+          <p class="section-eyebrow" style="color: var(--color-gold);">THE INVESTMENT CONTEXT</p>
+          <h2>Why This Matters</h2>
+          <p>
+            For a $100M platform acquisition, AI-driven margin improvement of 200-400 basis points translates to $2-4M in annual EBITDA. At a 10x multiple, that's $20-40M in enterprise value creation.
+          </p>
+          <p>
+            The question isn't whether you can afford AI diligence. It's whether you can afford to guess.
+          </p>
+        </div>
+        <div class="roi-stats">
+          <div class="roi-stat">
+            <span class="roi-value">200-400</span>
+            <span class="roi-label">bps EBITDA improvement potential</span>
+          </div>
+          <div class="roi-stat">
+            <span class="roi-value">10-20x</span>
+            <span class="roi-label">typical ROI on diligence investment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">OUR PROCESS</p>
+        <h2>How We Work</h2>
+        <p>Simple, structured, designed for deal timelines.</p>
+      </div>
+      <div class="process-grid">
+        {process.map(item => (
+          <div class="process-step">
+            <span class="step-number">{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Don't Do -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">CLARITY OF SCOPE</p>
+        <h2>What We Don't Do</h2>
+        <p>Setting expectations is part of the engagement.</p>
+      </div>
+      <div class="dont-grid">
+        <div class="dont-item">
+          <span class="dont-icon">✕</span>
+          <h4>No Ongoing Retainers</h4>
+          <p>Fixed-scope, fixed-price engagements only. We answer the question and move on.</p>
+        </div>
+        <div class="dont-item">
+          <span class="dont-icon">✕</span>
+          <h4>No Implementation Services</h4>
+          <p>We validate and roadmap. We don't compete with your portfolio company's team or integrators.</p>
+        </div>
+        <div class="dont-item">
+          <span class="dont-icon">✕</span>
+          <h4>No Vendor Recommendations</h4>
+          <p>We assess capability, not sell software. No referral relationships, no hidden incentives.</p>
+        </div>
+        <div class="dont-item">
+          <span class="dont-icon">✕</span>
+          <h4>No Junior Staff</h4>
+          <p>Every engagement is senior-led. We don't bill hours for learning curves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section section-dark">
+    <div class="container">
+      <div class="cta-content text-center">
+        <h2>Ready to Get Started?</h2>
+        <p>Let's discuss your deal. First conversation is always on us.</p>
+        <a href="/contact" class="btn btn-white">Schedule a Call</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding: 5rem 1.5rem;
+    background-color: var(--color-secondary);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+  }
+
+  .page-hero h1 {
+    color: white;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 1rem auto 0;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Pricing Grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 10px 40px rgba(201, 169, 98, 0.2);
+  }
+
+  .best-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-gold);
+    color: var(--color-navy);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .pricing-card.featured .pricing-header {
+    padding-top: 3rem;
+  }
+
+  .pricing-header {
+    padding: 2rem;
+    background: var(--color-background-alt);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .amount {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+  }
+
+  .timeline {
+    font-family: var(--font-mono);
+    color: var(--color-gold);
+    font-size: 0.875rem;
+  }
+
+  .savings {
+    margin-top: 0.75rem;
+    color: var(--status-go);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .pricing-body {
+    padding: 2rem;
+  }
+
+  .pricing-desc {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .pricing-body h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .pricing-body h4:first-of-type {
+    margin-top: 0;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--color-text);
+    font-size: 0.9375rem;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .status-dot.go {
+    background: var(--status-go);
+  }
+
+  .deliverable-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .deliverable-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+
+  .deliverable-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  .btn-full {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  /* ROI Section */
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .roi-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .roi-content p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .roi-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .roi-stat {
+    background: rgba(201, 169, 98, 0.15);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .roi-value {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .roi-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+  }
+
+  /* Process */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .process-step {
+    text-align: center;
+    position: relative;
+  }
+
+  .step-number {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+  }
+
+  .process-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step p {
+    color: var(--color-text-light);
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  /* What We Don't Do */
+  .dont-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .dont-item {
+    padding: 2rem;
+    background: var(--color-background-alt);
+    border-radius: 1rem;
+  }
+
+  .dont-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: var(--status-stop);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .dont-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dont-item p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .roi-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dont-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
